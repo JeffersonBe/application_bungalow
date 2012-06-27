@@ -1,0 +1,259 @@
+body
+{ background-color: #000000;
+  overflow: hidden;
+}
+
+a img
+{ border: none
+}
+
+a
+{ text-decoration: none
+}
+
+#full {
+	background-position: 0px 0px;
+	width: 100%;
+}
+
+#bg
+{ background-repeat: no-repeat;
+  opacity: 1;
+  width: 6000px;
+  height: 750px;
+  position: relative;
+  background-position: 0px 0px;
+  background-image: url(../img/bg.jpg);
+}
+
+#etoiles
+{ background-repeat: no-repeat;
+  opacity: 1;
+  width: 6000px;
+  height: 750px;
+  position: relative;
+  background-image: url(../img/etoiles.png);
+  background-position: 1650px 0px;
+}
+
+#soleil
+{ background-repeat: no-repeat;
+  opacity: 1;
+  width: 6000px;
+  height: 750px;
+  position: relative;
+  background-image: url(../img/soleil.png);
+  background-position: 950px 0px;
+}
+
+#lune
+{ background-repeat: no-repeat;
+  opacity: 1;
+  width: 6000px;
+  height: 750px;
+  position: relative;
+  background-image: url(../img/lune.png);
+  background-position: 950px 400px;
+  top: -750px;
+  opacity: 0;
+}
+
+#train
+{ background-repeat: no-repeat;
+  opacity: 1;
+  width: 6000px;
+  height: 750px;
+  position: relative;
+  background-image: url(../img/train.png);
+  background-position: 0px 300px;
+  top: -1500px;
+}
+
+#quai
+{ background-repeat: no-repeat;
+  opacity: 1;
+  width: 6000px;
+  height: 750px;
+  position: relative;
+  background-image: url(../img/quai.png);
+  background-position: 0px 600px;
+}
+
+#panneau
+{ background-repeat: no-repeat;
+  opacity: 1;
+  width: 6000px;
+  height: 750px;
+  position: relative;
+  background-image: url(../img/panneau.png);
+  background-position: 3000px 50px;
+}
+
+#train-contenu
+{ position: relative;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: bold;
+  width: 440px;
+  height: 110px;
+  top: -1842px;
+  left: 0px;
+  padding: 20px;
+}
+
+#panneau-contenu
+{ position: relative;
+  top: -2285px;
+  left: 3100px;
+  width: 560px;
+  height: 380px;
+}
+
+#fin-contenu
+{ position: relative;
+  width: 400px;
+  height: 200px;
+  top: -2565px;
+  left: 2500px;
+}
+
+.suggestionsBox1
+{ position: relative;
+  left: 30px;
+  top: -40px;
+  margin: 10px 0px 0px 0px;
+  width: 200px;
+  height: auto;
+  background-color: #212427;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border: 2px solid #000;
+  color: #fff;
+}
+
+.suggestionsBox2
+{ position: relative;
+  left: 250px;
+  top: -40px;
+  margin: 10px 0px 0px 0px;
+  width: 200px;
+  height: auto;
+  background-color: #212427;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border: 2px solid #000;
+  color: #fff;
+}
+
+.suggestionList
+{ margin: 0px;
+  padding: 0px;
+  width: auto;
+  height: auto;
+  list-style: none;
+}
+
+    .suggestionList li
+    { padding: 3px;
+      cursor: pointer;
+    }
+
+    .suggestionList li:hover
+    { background-color: #659CD8;
+      color: #009;
+    }
+
+h3
+{ font-size: 20px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.nom_bugalow
+{ width: auto;
+  height: auto;
+  padding: 7px;
+}
+
+#wrapper_bungalow
+{ text-align: center;
+  width: 550px;
+  height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#bungalow_table
+{ width: 390px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+
+.liste_bung li
+{ width: auto;
+  height: auto;
+  margin-left: -30px;
+  list-style: none;
+}
+
+.img_bung
+{ padding: 0px;
+  margin: 0px;
+  margin-top: -50px;
+}
+
+.cell_libre
+{ text-align: center;
+  width: auto;
+  height: 50px;
+ : ;
+}
+
+.cell_libre:hover
+{ background-color: #83FF46;
+  width: auto;
+  height: auto;
+}
+
+.cell_utilisee
+{ text-align: center;
+  width: auto;
+  height: 100px;
+}
+
+.cell_utilisee:hover
+{ background-color: #FF5E62;
+  width: auto;
+  height: auto;
+}
+
+.nb_nainsa
+{ width: auto;
+  height: auto;
+  font-size: 28px;
+  font-weight: bolder;
+  color: #FFFFFF;
+  position: relative;
+  top: 55px;
+  right: 18px;
+}
+
+.contenance
+{ width: auto;
+  height: auto;
+  color: #FFFFFF;
+  font-size: 28px;
+  font-weight: bolder;
+  position: relative;
+  top: 21px;
+  left: 20px;
+}
+
+.submit
+{ width: auto;
+  height: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 10px;
+}
