@@ -17,9 +17,20 @@ Installation
 3. $ git clone git@bitbucket.org:bdeshowtime2012/application_bungalow.git
 4. Créer une base de données mysql (avec phpmyadmin par exemple)
 5. Modifier application/config/database.php avec les informations de la base de données
-6. Importer le fichier db.sql dans la base de données mysql (avec phpmyadmin par exemple)
-7. $ chmod 777 application/logs application/cache
+6. À la ligne 251 de application/config/config.php, remplacer 'TRUE' par 'FALSE'
+7. Dans votre navigateur, aller à la page monsite.com/migration en adaptant monsite.com ^^
+8. À la ligne 251 de application/config/config.php, remplacer 'FALSE' par 'TRUE'
+9. $ chmod 777 application/logs application/cache
+10. Adapter la ligne 3 de .htaccess en précisant le chemin de l'application à partir de localhost/
 
+
+Mise en production
+==================
+
+Idem + les étapes suivantes
+
+1. À la ligne 21 de index.php, remplacer 'development' par 'production'
+2. À la ligne 183 de application/config/config.php, remplacer "$config['log_threshold'] = 4;" par "$config['log_threshold'] = 1;"
 
 Documentation
 =============
