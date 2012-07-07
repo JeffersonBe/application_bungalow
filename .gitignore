@@ -1,1 +1,3 @@
-doc/*
+doc/html/*
+doc/latex/*
+application/logs/*
