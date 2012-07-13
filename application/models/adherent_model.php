@@ -2,6 +2,11 @@
 
 /**
 * Représente un adhérent du BDE
+*
+* @author Anthony VEREZ (netantho@minet.net)
+*         président de MiNET 2012-2013
+* @see http://www.anthony-verez.fr
+* @since 07/2012
 */
 class Adherent_model extends CI_Model {
 	/**
@@ -49,7 +54,7 @@ class Adherent_model extends CI_Model {
     */
 	public $creation;
 	/**
-    * ecole de l'adhérent ('tsp' ou 'tem')
+    * date de la dernière modification de l'adhérent
 	* @note exemple '2012-07-15 00:00:00'
 	* @note Généré et mis à jour automatiquement par mysql
     * @var string $modification
@@ -84,8 +89,8 @@ class Adherent_model extends CI_Model {
 	}
 
 	/**
-	* Charge les variables d'instaces avec les paramètres
-	* d'un adhérent en allant cherchant dans la base de données
+	* Charge les variables d'instance avec les paramètres
+	* d'un adhérent en allant chercher dans la base de données
 	*
 	* @param int id de l'adhérent
 	* @return Adherent_model objet adhérent
