@@ -64,7 +64,7 @@ class Compta_wei_model extends CI_Model {
 	}
 
 	/**
-	* Enregistre la comptabilité WEI de l'adhérent dans le base de données
+	* Enregistre la comptabilité WEI de l'adhérent dans la base de données
 	* et retourne son id
 	*
 	* @return int id de la comptabilité WEI
@@ -82,6 +82,22 @@ class Compta_wei_model extends CI_Model {
 		$this->db->insert('compta_wei', $data);
 
 		return $this->db->insert_id();
+	}
+
+	/**
+	* Met à jour la comptabilité WEI de l'adhérent dans la base de données
+	*/
+	public function mettre_a_jour()
+	{
+		$data = array(
+			'tarif_intitule' => $this->tarif_intitule,
+			'prix' => $this->prix,
+			'moyen_payement' => $this->moyen_payement,
+			'caution' => (int) $this->caution,
+		);
+
+		$this->db->where('id', $id);
+		$this->db->update('compta_wei', $data);
 	}
 
 	/**

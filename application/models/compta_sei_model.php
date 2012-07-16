@@ -57,7 +57,7 @@ class Compta_sei_model extends CI_Model {
 	}
 
 	/**
-	* Enregistre la comptabilité SEI de l'adhérent dans le base de données
+	* Enregistre la comptabilité SEI de l'adhérent dans la base de données
 	* et retourne son id
 	*
 	* @return int id de la comptabilité SEI
@@ -74,6 +74,20 @@ class Compta_sei_model extends CI_Model {
 		$this->db->insert('compta_sei', $data);
 
 		return $this->db->insert_id();
+	}
+
+	/**
+	* Met à jour la comptabilité SEI de l'adhérent dans la base de données
+	*/
+	public function mettre_a_jour()
+	{
+		$data = array(
+			'mode_payement' => $this->mode_payement,
+			'bbq_paye' => (int) $this->bbq_paye,
+			'prix_paye' => $this->prix_paye,
+		);
+
+		$this->db->where('id', $id);
 	}
 
 	/**

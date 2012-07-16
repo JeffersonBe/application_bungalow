@@ -29,7 +29,7 @@ class Compta_model extends CI_Model {
 	private $_adherent;
 	/**
 	* L'adhérent est-il bien cotisant BDE ?
-	* @var boolean $cotisant_bde
+	* @var bool $cotisant_bde
 	*/
 	public $cotisant_bde;
 	/**
@@ -40,7 +40,7 @@ class Compta_model extends CI_Model {
 	public $moyen_payement_cotiz;
 	/**
 	* L'adhérent est-il intéressé par la Société Générale ?
-	* @var boolean $interet_sg
+	* @var bool $interet_sg
 	*/
 	public $interet_sg;
 	/**
@@ -56,7 +56,7 @@ class Compta_model extends CI_Model {
 	public $num_compte
 	/**
 	* L'adhérent paye-t-il par prélèvement avec un compte à la Société Générale ?
-	* @var boolean $prelevement
+	* @var bool $prelevement
 	*/
 	public $prelevement;
 	/**
@@ -97,7 +97,7 @@ class Compta_model extends CI_Model {
 	}
 
 	/**
-	* Enregistre la comptabilité de l'adhérent dans le base de données
+	* Enregistre la comptabilité de l'adhérent dans la base de données
 	* et retourne son id
 	*
 	* @return int id de la comptabilité
@@ -121,6 +121,28 @@ class Compta_model extends CI_Model {
 		$this->db->insert('compta', $data);
 
 		return $this->db->insert_id();
+	}
+
+	/**
+	* Met à jour la comptabilité de l'adhérent dans la base de données
+	*/
+	public function mettre_a_jour()
+	{
+		$data = array(
+			'cotisant_bde' => (int) $this->cotisant_bde, 
+			'moyen_payement_cotiz' => $this->moyen_payement_cotiz,
+			'interet_sg' => (int) $this->interet_sg,
+			'compte_sg' => $this->compte_sg,
+			'num_compte' => $this->num_compte,
+			'prelevement' => (int) $this->prelevement,
+			'pallier' => $this->pallier,
+			'tarif_intitule' => $this->tarif_intitule,
+			'prix' => $this->prix,
+			'etat_prelevement' => $this->etat_prelevement,
+		);
+
+		$this->db->where('id', $id);
+		$this->db->update('compta', $data);
 	}
 
 	/**

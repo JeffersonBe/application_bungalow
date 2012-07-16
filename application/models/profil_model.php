@@ -93,7 +93,7 @@ class Profil_model extends CI_Model {
 	}
 
 	/**
-	* Enregistre le profil de l'adhérent dans le base de données
+	* Enregistre le profil de l'adhérent dans la base de données
 	* et retourne son id
 	*
 	* @return int id du profil
@@ -116,6 +116,27 @@ class Profil_model extends CI_Model {
 		$this->db->insert('profil', $data);
 
 		return $this->db->insert_id();
+	}
+
+	/**
+	* Met à jour le profil de l'adhérent dans la base de données
+	*/
+	public function mettre_a_jour()
+	{
+		$data = array(
+			'disi' => $this->disi, 
+			'email' => $this->email,
+			'date_naissance' => $this->date_naissance,
+			'lieu_naissance' => $this->lieu_naissance,
+			'portable' => $this->portable,
+			'fixe' => $this->fixe,
+			'adresse' => $this->adresse,
+			'fiche_rentree' => $this->fiche_rentree,
+			'regime' => $this->regime,
+		);
+
+		$this->db->where('id', $id);
+		$this->db->update('profil', $data);
 	}
 
 	/**

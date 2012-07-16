@@ -67,7 +67,7 @@ class Adherent_model extends CI_Model {
 	}
 
 	/**
-	* Enregistre l'adhérent dans le base de données
+	* Enregistre l'adhérent dans la base de données
 	* et retourne son id
 	*
 	* @return int id de l'adhérent
@@ -86,6 +86,23 @@ class Adherent_model extends CI_Model {
 		$this->db->insert('adherent', $data);
 
 		return $this->db->insert_id();
+	}
+
+	/**
+	* Met à jour l'adhérent dans la base de données
+	*/
+	public function mettre_a_jour()
+	{
+		$data = array(
+			'prenom' => $this->prenom,
+			'nom' => $this->nom, 
+			'ecole' => $this->ecole,
+			'sexe' => $this->sexe,
+			'promo' => $this->promo,
+		);
+		
+		$this->db->where('id', $id);
+		$this->db->update('adherent', $data);
 	}
 
 	/**
@@ -191,5 +208,14 @@ class Adherent_model extends CI_Model {
 		}
 
 		return $resultat;
+	}
+
+	/**
+	* Supprime un adhérent et les données qui lui sont liées
+	*/
+	public function supprimer()
+	{
+		$this->db->where('id', $this->id);
+		$this->db->delete('adherent');
 	}
 }
