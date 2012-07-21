@@ -41,9 +41,9 @@ class Adherent_model extends CI_Model {
     */
 	public $sexe;
 	/**
-    * ecole de l'adhérent ('tsp' ou 'tem')
-	* @warning 3 caractères max.
-    * @var string $promo
+    * promo de l'adhérent
+	* @warning 4 chiffres max.
+    * @var int $promo
     */
 	public $promo;
 	/**
@@ -101,7 +101,7 @@ class Adherent_model extends CI_Model {
 			'promo' => $this->promo,
 		);
 		
-		$this->db->where('id', $id);
+		$this->db->where('id', $this->id);
 		$this->db->update('adherent', $data);
 	}
 
@@ -127,7 +127,7 @@ class Adherent_model extends CI_Model {
 		}
 		
 		$row = $query->row();
-		$this->id = $row->id;
+		$this->id = (int) $row->id;
 		$this->prenom = $row->prenom;
 		$this->nom = $row->nom;
 		$this->ecole = $row->ecole;
@@ -153,7 +153,10 @@ class Adherent_model extends CI_Model {
 	{
 		$this->db->select('id');
 		$this->db->order_by($ordre_key, $ordre_direction);
-		$this->db->limit($limite, $offset);
+
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
 		$query = $this->db->get('adherent');
 		
 		if ($query->num_rows() == 0)
@@ -164,7 +167,7 @@ class Adherent_model extends CI_Model {
 		$resultat = array();
 		foreach($query->result() as $adherent)
 		{
-			array_push($resultat, $this->load($adherent->id));
+			array_push($resultat, $this->charger($adherent->id));
 		}
 
 		return $resultat;
@@ -192,7 +195,9 @@ class Adherent_model extends CI_Model {
 			}
 		}
 
-		$this->db->limit($limite, $offset);
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
 		$query = $this->db->get('adherent');
 
 		$resultat = array();
@@ -204,7 +209,7 @@ class Adherent_model extends CI_Model {
 
 		foreach($query->result() as $adherent)
 		{
-			array_push($resultat, $adherent->id);
+			array_push($resultat, (int) $adherent->id);
 		}
 
 		return $resultat;

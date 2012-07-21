@@ -124,7 +124,7 @@ class Wei_bungalow_model extends CI_Model {
 		}
 		
 		$row = $query->row();
-		$this->id = $row->id;
+		$this->id = (int) $row->id;
 		$this->equipe_id = $row->equipe_id;
 		$this->_equipe = $this->Wei_equipe_model->charger($this->equipe_id);
 		$this->numero = $row->numero;
@@ -149,7 +149,10 @@ class Wei_bungalow_model extends CI_Model {
 	{
 		$this->db->select('id');
 		$this->db->order_by($ordre_key, $ordre_direction);
-		$this->db->limit($limite, $offset);
+
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
 		$query = $this->db->get('wei_bungalow');
 		
 		if ($query->num_rows() == 0)
@@ -160,7 +163,7 @@ class Wei_bungalow_model extends CI_Model {
 		$resultat = array();
 		foreach($query->result() as $wei_bungalow)
 		{
-			array_push($resultat, $this->load($wei_bungalow->id));
+			array_push($resultat, $this->charger($wei_bungalow->id));
 		}
 
 		return $resultat;

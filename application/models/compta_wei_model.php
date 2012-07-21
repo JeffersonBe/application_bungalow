@@ -96,7 +96,7 @@ class Compta_wei_model extends CI_Model {
 			'caution' => (int) $this->caution,
 		);
 
-		$this->db->where('id', $id);
+		$this->db->where('id', $this->id);
 		$this->db->update('compta_wei', $data);
 	}
 
@@ -135,7 +135,7 @@ class Compta_wei_model extends CI_Model {
 		}
 		
 		$row = $query->row();
-		$this->id = $row->id;
+		$this->id = (int) $row->id;
 		$this->adherent_id = $row->adherent_id;
 		$this->_adherent = $this->Adherent_model->charger($this->adherent_id);
 		$this->tarif_intitule = $row->tarif_intitule;

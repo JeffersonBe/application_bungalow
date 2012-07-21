@@ -182,7 +182,7 @@ class Wei_model extends CI_Model {
 		}
 		
 		$row = $query->row();
-		$this->id = $row->id;
+		$this->id = (int) $row->id;
 		$this->adherent_id = $row->adherent_id;
 		$this->_adherent = $this->Adherent_model->charger($this->adherent_id);
 		$this->interet = (bool) $row->interet;

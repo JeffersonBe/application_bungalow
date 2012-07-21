@@ -79,7 +79,10 @@ class Wei_equipe_model extends CI_Model {
 	{
 		$this->db->select('id');
 		$this->db->order_by($ordre_key, $ordre_direction);
-		$this->db->limit($limite, $offset);
+
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
 		$query = $this->db->get('wei_equipe');
 		
 		if ($query->num_rows() == 0)
@@ -90,7 +93,7 @@ class Wei_equipe_model extends CI_Model {
 		$resultat = array();
 		foreach($query->result() as $wei_equipe)
 		{
-			array_push($resultat, $this->load($wei_equipe->id));
+			array_push($resultat, $this->charger($wei_equipe->id));
 		}
 
 		return $resultat;
@@ -168,6 +171,35 @@ class Wei_equipe_model extends CI_Model {
 		}
 
 		return $resultat;
+	}
+
+	/**
+	* Charge les variables d'instance avec les paramètres
+	* d'une équipe wei en allant chercher dans la base de données
+	*
+	* @param int $id equipe wei
+	* @return Wei_equipe_model objet wei
+	*/
+	public function charger($id)
+	{
+		$query = $this->db->get_where(
+			'wei_equipe',
+			array(
+				'id' => $id
+			)
+		);
+		
+		if ($query->num_rows() != 1)
+		{
+			return FALSE;
+		}
+		
+		$row = $query->row();
+		$this->id = (int) $row->id;
+		$this->nom = $row->nom;
+		$this->modification = $row->modification;
+
+		return clone $this;
 	}
 
 	/**

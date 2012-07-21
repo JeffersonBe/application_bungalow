@@ -135,7 +135,7 @@ class Profil_model extends CI_Model {
 			'regime' => $this->regime,
 		);
 
-		$this->db->where('id', $id);
+		$this->db->where('id', $this->id);
 		$this->db->update('profil', $data);
 	}
 
@@ -174,7 +174,7 @@ class Profil_model extends CI_Model {
 		}
 		
 		$row = $query->row();
-		$this->id = $row->id;
+		$this->id = (int) $row->id;
 		$this->adherent_id = $row->adherent_id;
 		$this->_adherent = $this->Adherent_model->charger($this->adherent_id);
 		$this->disi = $row->disi;
@@ -212,7 +212,9 @@ class Profil_model extends CI_Model {
 			}
 		}
 
-		$this->db->limit($limite, $offset);
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
 		$query = $this->db->get('profil');
 
 		$resultat = array();

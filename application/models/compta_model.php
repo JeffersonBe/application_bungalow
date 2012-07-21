@@ -141,7 +141,7 @@ class Compta_model extends CI_Model {
 			'etat_prelevement' => $this->etat_prelevement,
 		);
 
-		$this->db->where('id', $id);
+		$this->db->where('id', $this->id);
 		$this->db->update('compta', $data);
 	}
 
@@ -180,7 +180,7 @@ class Compta_model extends CI_Model {
 		}
 		
 		$row = $query->row();
-		$this->id = $row->id;
+		$this->id = (int) $row->id;
 		$this->adherent_id = $row->adherent_id;
 		$this->_adherent = $this->Adherent_model->charger($this->adherent_id);
 		$this->cotisant_bde = (bool) $row->cotisant_bde;
@@ -219,7 +219,9 @@ class Compta_model extends CI_Model {
 			}
 		}
 
-		$this->db->limit($limite, $offset);
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
 		$query = $this->db->get('compta');
 
 		$resultat = array();

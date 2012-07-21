@@ -87,7 +87,7 @@ class Compta_sei_model extends CI_Model {
 			'prix_paye' => $this->prix_paye,
 		);
 
-		$this->db->where('id', $id);
+		$this->db->where('id', $this->id);
 	}
 
 	/**
@@ -125,7 +125,7 @@ class Compta_sei_model extends CI_Model {
 		}
 		
 		$row = $query->row();
-		$this->id = $row->id;
+		$this->id = (int) $row->id;
 		$this->adherent_id = $row->adherent_id;
 		$this->_adherent = $this->Adherent_model->charger($this->adherent_id);
 		$this->mode_payement = $row->mode_payement;
