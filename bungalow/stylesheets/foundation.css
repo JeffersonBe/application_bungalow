@@ -895,6 +895,11 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
  Example markup <div id="myModal" class="reveal-modal"> <h2>Awesome. I have it.</h2> <p class="lead">Your couch.  I it's mine.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices aliquet placerat. Duis pulvinar orci et nisi euismod vitae tempus lorem consectetur. Duis at magna quis turpis mattis venenatis eget id diam. </p> <a class="close-reveal-modal">&#215;</a> </div> */
 /* -------------------------------------------------- Table of Contents
 ----------------------------------------------------- */
+#animationBungalow {
+	height: 500px;
+	background: black;
+	margin: 0 0 10px;	
+}
 
 #inscription {
 	background: url(../images/tileable_wood_texture.png);
@@ -902,10 +907,29 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
 	-webkit-box-shadow: 0 8px 6px -6px black;
 	   -moz-box-shadow: 0 8px 6px -6px black;
 	        box-shadow: 0 8px 6px -6px black;
+	        padding: 15px 0;
 }
 
-
 .bungalow {
-	background-color: blue;
+	background-color:rgba(253,253,253,0.88);
 	height: 200px;
+}
+
+body, img { 
+    transition:all .2s linear; 
+    -o-transition:all .2s linear; 
+    -moz-transition:all .2s linear; 
+    -webkit-transition:all .2s linear;
+}
+
+#slide1 {
+   background: url(../images/jpeg.jpeg) center 0 no-repeat fixed;
+}
+
+#slide2 {
+   background: url(../images/slide2-bg.jpeg) center 0 no-repeat fixed;
+}
+
+#slide3 {
+   background: url(../images/slide3-bg.jpeg) center 0 no-repeat fixed;
 }
