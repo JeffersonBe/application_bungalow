@@ -29,7 +29,7 @@ class Adherent_model_test extends CI_Controller {
 		echo $this->unit->report();
 	}
 
-	private function test_nouvel_adherent()
+	public function test_nouvel_adherent()
 	{
 		$adherent = new $this->Adherent_model;
 		$adherent->prenom = "John";
@@ -42,7 +42,7 @@ class Adherent_model_test extends CI_Controller {
 		return $id;
 	}
 
-	private function test_supprimer_adherent($id)
+	public function test_supprimer_adherent($id)
 	{
 		$adherent = $this->Adherent_model->charger($id);
 		$this->unit->run($adherent, 'is_object', 'test_supprimer_adherent charger');
@@ -50,7 +50,7 @@ class Adherent_model_test extends CI_Controller {
 		$this->unit->run('', '', 'test_supprimer_adherent checkpoint');
 	}
 
-	private function test_mettre_a_jour_adherent($id)
+	public function test_mettre_a_jour_adherent($id)
 	{
 		$adherent = $this->Adherent_model->charger($id);
 		$this->unit->run($adherent, 'is_object', 'test_mettre_a_jour_adherent charger');
@@ -60,7 +60,7 @@ class Adherent_model_test extends CI_Controller {
 		$this->unit->run($adherent->prenom, 'Johanna', 'test_mettre_a_jour_adherent changer prenom'); 
 	}
 
-	private function test_lister_adherent($id1, $id2)
+	public function test_lister_adherent($id1, $id2)
 	{
 		$adherents = $this->Adherent_model->lister($limite=1);
 		$this->unit->run($adherents, 'is_array', 'test_lister_adherent limite1, is_array');
@@ -79,7 +79,7 @@ class Adherent_model_test extends CI_Controller {
 		$this->unit->run($adherents[1]->prenom, 'Johanna', 'test_lister_adherent limite2, prenom1');
 	}
 
-	private function test_chercher_adherent($id1, $id2, $contraintes)
+	public function test_chercher_adherent($id1, $id2, $contraintes)
 	{
 		$adherents = $this->Adherent_model->chercher(array());
 		$this->unit->run($adherents, 'is_array', 'test_chercher_adherent vide is_array');
