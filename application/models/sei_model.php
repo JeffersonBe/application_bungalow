@@ -10,7 +10,7 @@
 */
 class Sei_model extends CI_Model {
 	/**
-	* id identifiant de la comptabilité SEI d'un adhérent de façon unique
+	* id identifiant de la SEI d'un adhérent de façon unique
 	* @warning 11 chiffres max.
 	* @note généré automatiquement par mysql
 	* @var int $id
@@ -57,6 +57,13 @@ class Sei_model extends CI_Model {
 	* @var bool $bbq_jeu
 	*/
 	public $bbq_jeu;
+	/**
+    * date de la dernière modification du profil de l'adhérent
+	* @note exemple '2012-07-15 00:00:00'
+	* @note Généré et mis à jour automatiquement par mysql
+    * @var string $modification
+    */
+	public $modification;
 
 	function __construct()
 	{

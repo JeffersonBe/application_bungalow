@@ -39,6 +39,13 @@ class Wei_bungalow_model extends CI_Model {
 	* @var int $capacite
 	*/
 	public $capacite;
+	/**
+    * date de la dernière modification du profil de l'adhérent
+	* @note exemple '2012-07-15 00:00:00'
+	* @note Généré et mis à jour automatiquement par mysql
+    * @var string $modification
+    */
+	public $modification;
 	
 	function __construct()
 	{
@@ -197,5 +204,14 @@ class Wei_bungalow_model extends CI_Model {
 		}
 
 		return $resultat;
+	}
+
+	/**
+	* Supprime un bungalow et les données qui lui sont liées
+	*/
+	public function supprimer()
+	{
+		$this->db->where('id', $this->id);
+		$this->db->delete('wei_bungalow');
 	}
 }
