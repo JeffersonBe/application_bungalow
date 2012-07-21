@@ -1,4 +1,4 @@
-<?php
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
 * Représente la comptabilité pour le WEI d'un adhérent du BDE
