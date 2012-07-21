@@ -76,7 +76,7 @@ class Profil_model extends CI_Model {
 	public $fiche_rentree=0;
 	/**
 	* régime alimentaire de l'adhérent
-	* @var string $fiche_rentree
+	* @var string $regime
 	*/
 	public $regime='';
 	/**
@@ -143,8 +143,8 @@ class Profil_model extends CI_Model {
 	* Charge les variables d'instance avec les paramètres
 	* de le profil d'un adhérent en allant chercher dans la base de données
 	*
-	* @param int id du profil
-	* @param int id de l'adhérent
+	* @param int $id du profil
+	* @param int $adherent_id id de l'adhérent
 	* @return Profil_model objet compta
 	*/
 	public function charger($id=False, $adherent_id=False)
@@ -193,9 +193,9 @@ class Profil_model extends CI_Model {
 	/**
 	* Cherche des profils adhérent selon des contraintes
 	*
-	* @param array tableau associatif des contraintes $colonne => $recherche
-	* @param int optionnel nombre limite de comptabilités
-	* @param int optionnel offset (décalage)
+	* @param array $contraintes tableau associatif des contraintes $colonne => $recherche
+	* @param int $limite optionnel nombre limite de comptabilités
+	* @param int $offset optionnel (décalage)
 	* @return int array tableau des id des adhérents
 	*         (permet de faire des inclusions, unions, exclusions, ...)
 	*/

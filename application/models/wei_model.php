@@ -151,8 +151,8 @@ class Wei_model extends CI_Model {
 	* Charge les variables d'instance avec les paramètres
 	* du wei d'un adhérent en allant chercher dans la base de données
 	*
-	* @param int id du wei
-	* @param int id de l'adhérent
+	* @param int $id du wei
+	* @param int $adherent_id id de l'adhérent
 	* @return Wei_model objet wei
 	*/
 	public function charger($id=False, $adherent_id=False)

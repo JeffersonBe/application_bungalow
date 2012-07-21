@@ -53,7 +53,7 @@ class Compta_model extends CI_Model {
 	* @warning 13 caractères max.
 	* @var string $num_compte
 	*/
-	public $num_compte
+	public $num_compte;
 	/**
 	* L'adhérent paye-t-il par prélèvement avec un compte à la Société Générale ?
 	* @var bool $prelevement
@@ -149,8 +149,8 @@ class Compta_model extends CI_Model {
 	* Charge les variables d'instance avec les paramètres
 	* de la comptabilité d'un adhérent en allant chercher dans la base de données
 	*
-	* @param int id de la comptabilité
-	* @param int id de l'adhérent
+	* @param int $id de la comptabilité
+	* @param int $adherent_id id de l'adhérent
 	* @return Compta_model objet compta
 	*/
 	public function charger($id=False, $adherent_id=False)
@@ -200,9 +200,9 @@ class Compta_model extends CI_Model {
 	/**
 	* Cherche des comptabilités adhérent selon des contraintes
 	*
-	* @param array tableau associatif des contraintes $colonne => $recherche
-	* @param int optionnel nombre limite de comptabilités
-	* @param int optionnel offset (décalage)
+	* @param array $contraintes tableau associatif des contraintes $colonne => $recherche
+	* @param int $limite optionnel nombre limite de comptabilités
+	* @param int $offset optionnel offset (décalage)
 	* @return int array tableau des id des adhérents
 	*         (permet de faire des inclusions, unions, exclusions, ...)
 	*/

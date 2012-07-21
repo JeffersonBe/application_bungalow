@@ -104,8 +104,8 @@ class Compta_wei_model extends CI_Model {
 	* Charge les variables d'instance avec les paramètres
 	* de la comptabilité WEI d'un adhérent en allant chercher dans la base de données
 	*
-	* @param int id de la comptabilité WEI
-	* @param int id de l'adhérent
+	* @param int $id de la comptabilité WEI
+	* @param int $adherent_id id de l'adhérent
 	* @return Compta_wei_model objet compta
 	*/
 	public function charger($id=False, $adherent_id=False)

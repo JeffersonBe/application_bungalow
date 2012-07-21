@@ -109,7 +109,7 @@ class Adherent_model extends CI_Model {
 	* Charge les variables d'instance avec les paramètres
 	* d'un adhérent en allant chercher dans la base de données
 	*
-	* @param int id de l'adhérent
+	* @param int $id de l'adhérent
 	* @return Adherent_model objet adhérent
 	*/
 	public function charger($id)
@@ -143,10 +143,10 @@ class Adherent_model extends CI_Model {
 	* Liste les adhérents selon des critères optionnels de
 	* classement et de limite
 	*
-	* @param int optionnel nombre limite d'adhérents
-	* @param int optionnel offset (décalage)
-	* @param string optionnel colonne selon laquelle s'effectue l'ordre
-	* @param string optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
+	* @param int $limite optionnel nombre limite d'adhérents
+	* @param int $offset optionnel $offset (décalage)
+	* @param string $ordre_key optionnel $colonne selon laquelle s'effectue l'ordre
+	* @param string $ordre_direction optionnel $direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
 	* @return Adherent_model array tableau des objets des adhérents
 	*/
 	public function lister($limite=30, $offset=0, $ordre_key='id', $ordre_direction='desc')
@@ -173,9 +173,9 @@ class Adherent_model extends CI_Model {
 	/**
 	* Cherche des adhérents selon des contraintes
 	*
-	* @param array tableau associatif des contraintes $colonne => $recherche
-	* @param int optionnel nombre limite d'adhérents
-	* @param int optionnel offset (décalage)
+	* @param array $contraintes tableau associatif des contraintes $colonne => $recherche
+	* @param int $limite optionnel nombre limite d'adhérents
+	* @param int $offset optionnel offset (décalage)
 	* @return int array tableau des id des adhérents
 	*         (permet de faire des inclusions, unions, exclusions, ...)
 	*/

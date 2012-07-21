@@ -94,8 +94,8 @@ class Compta_sei_model extends CI_Model {
 	* Charge les variables d'instance avec les paramètres
 	* de la comptabilité SEI d'un adhérent en allant chercher dans la base de données
 	*
-	* @param int id de la comptabilité SEI
-	* @param int id de l'adhérent
+	* @param int $id de la comptabilité SEI
+	* @param int $adherent_id id de l'adhérent
 	* @return Compta_sei_model objet compta
 	*/
 	public function charger($id=False, $adherent_id=False)

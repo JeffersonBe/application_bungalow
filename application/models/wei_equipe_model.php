@@ -69,10 +69,10 @@ class Wei_equipe_model extends CI_Model {
 	* Liste les équipes selon des critères optionnels de
 	* classement et de limite
 	*
-	* @param int optionnel nombre limite de bungalows
-	* @param int optionnel offset (décalage)
-	* @param string optionnel colonne selon laquelle s'effectue l'ordre
-	* @param string optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
+	* @param int $limite optionnel nombre limite de bungalows
+	* @param int $offset optionnel offset (décalage)
+	* @param string $ordre_key optionnel colonne selon laquelle s'effectue l'ordre
+	* @param string $ordre_direction optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
 	* @return Wei_equipe_model array tableau des objets des équipes
 	*/
 	public function lister($limite=30, $offset=0, $ordre_key='id', $ordre_direction='desc')
@@ -100,10 +100,10 @@ class Wei_equipe_model extends CI_Model {
 	* Liste les membres d'un bungalow selon des critères optionnels de
 	* classement et de limite
 	*
-	* @param int optionnel nombre limite de bungalows
-	* @param int optionnel offset (décalage)
-	* @param string optionnel colonne selon laquelle s'effectue l'ordre
-	* @param string optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
+	* @param int $limite optionnel nombre limite de bungalows
+	* @param int $offset optionnel offset (décalage)
+	* @param string $ordre_key optionnel colonne selon laquelle s'effectue l'ordre
+	* @param string $ordre_direction optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
 	* @return Adherent_model array tableau des objets des adhérents
 	*/
 	public function lister_membres($limite=30, $offset=0, $ordre_key='id', $ordre_direction='desc')
@@ -133,9 +133,9 @@ class Wei_equipe_model extends CI_Model {
 	/**
 	* Cherche des équipes WEI selon des contraintes
 	*
-	* @param array tableau associatif des contraintes $colonne => $recherche
-	* @param int optionnel nombre limite de équipes WEI
-	* @param int optionnel offset (décalage)
+	* @param array $contraintes tableau associatif des contraintes $colonne => $recherche
+	* @param int $limite optionnel nombre limite de équipes WEI
+	* @param int $offset optionnel offset (décalage)
 	* @return int array tableau des id des équipes WEI
 	*         (permet de faire des inclusions, unions, exclusions, ...)
 	*/

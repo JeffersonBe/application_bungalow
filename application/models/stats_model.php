@@ -15,12 +15,12 @@ class Stats_model extends CI_Model {
 	* Nombre d'éléments dans un groupe
 	* @var int $nb;
 	*/
-	$this->nb;
+	public $nb;
 	/**
 	* Pourcentage d'éléments du groupe par rapport au total
 	* @var int $pourcentage
 	*/
-	$this->pourcentage;
+	public $pourcentage;
 
 	function __construct()
 	{

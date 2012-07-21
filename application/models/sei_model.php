@@ -115,8 +115,8 @@ class Sei_model extends CI_Model {
 	* Charge les variables d'instance avec les paramètres
 	* de la sei d'un adhérent en allant chercher dans la base de données
 	*
-	* @param int id de la sei
-	* @param int id de l'adhérent
+	* @param int $id de la sei
+	* @param int $adherent_id id de l'adhérent
 	* @return Sei_model objet sei
 	*/
 	public function charger($id=False, $adherent_id=False)
@@ -161,9 +161,9 @@ class Sei_model extends CI_Model {
 
 	/**
 	* Permet de savoir qui mange un jour donné et si il a payé
-	* @param string jour ('sam'|'dim'|'lun'|'mar'|'mer'|'jeu')
-	* @param string optionnel colonne selon laquelle s'effectue l'ordre
-	* @param string optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
+	* @param string $jour ('sam'|'dim'|'lun'|'mar'|'mer'|'jeu')
+	* @param string $ordre_key optionnel colonne selon laquelle s'effectue l'ordre
+	* @param string $ordre_direction optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
 	* @return objet array objets contenant adherent, sei et compta_sei
 	*                     des adhérent mangeant au bbq du jour voulu
 	*/
