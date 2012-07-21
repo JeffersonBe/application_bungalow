@@ -4,7 +4,7 @@
 
 html { font-size: 62.5%; }
 
-body { background: white; font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; font-size: 1.4rem; line-height: 1; color: #222222; position: relative; -webkit-font-smoothing: antialiased; }
+body { background: url(../images/bg.png); font-family: "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif; font-size: 14px; font-size: 1.4rem; line-height: 1; color: #222222; position: relative; -webkit-font-smoothing: antialiased; }
 
 /* Links ---------------------- */
 a { color: #f2bfd0; text-decoration: none; line-height: inherit; }
@@ -709,7 +709,7 @@ form { margin: 0 0 19.416px; }
 .row form .row.collapse { margin: 0; }
 .row form .row.collapse .column, .row form .row.collapse .columns { padding: 0; }
 
-label { font-size: 14px; color: #4d4d4d; cursor: pointer; display: block; font-weight: 500; margin-bottom: 3px; }
+label { font-size: 14px; color: #4d4d4d; cursor: pointer; display: block; font-weight: 500; margin-bottom: 3px; font-family: 'Oleo Script', cursive;}
 label.right { float: none; text-align: right; }
 label.inline { line-height: 32px; margin: 0 0 12px 0; }
 
@@ -894,14 +894,18 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
   /* NOTES Close button entity is &#215;
  Example markup <div id="myModal" class="reveal-modal"> <h2>Awesome. I have it.</h2> <p class="lead">Your couch.  I it's mine.</p> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices aliquet placerat. Duis pulvinar orci et nisi euismod vitae tempus lorem consectetur. Duis at magna quis turpis mattis venenatis eget id diam. </p> <a class="close-reveal-modal">&#215;</a> </div> */
 /* -------------------------------------------------- Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-/* ----------------------------------------- Shared Styles
------------------------------------------ */
-/* ----------------------------------------- Page Name 1
------------------------------------------ */
-/* ----------------------------------------- Page Name 2
------------------------------------------ */
+----------------------------------------------------- */
+
+#inscription {
+	background: url(../images/tileable_wood_texture.png);
+	border-radius: 5px;
+	-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
+}
+
+
+.bungalow {
+	background-color: blue;
+	height: 200px;
+}
