@@ -226,7 +226,7 @@ class Profil_model extends CI_Model {
 
 		foreach($query->result() as $profil)
 		{
-			array_push($resultat, $profil->adherent_id);
+			array_push($resultat, (int) $profil->adherent_id);
 		}
 
 		return $resultat;

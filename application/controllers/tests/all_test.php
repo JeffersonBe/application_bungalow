@@ -13,7 +13,8 @@ class All_test extends CI_Controller {
 	public function index()
 	{
 		$tests = array(
-			'adherent_model_test.php' => 'Adherent_model_test'
+			'adherent_model_test.php' => 'Adherent_model_test',
+			'compta_model_test.php' => 'Compta_model_test',
 		);
 
 		foreach ($tests as $file => $model)

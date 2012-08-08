@@ -49,11 +49,11 @@ class Compta_model extends CI_Model {
 	*/
 	public $compte_sg;
 	/**
-	* Numéro de compte de l'adhérent pour la Société Générale
-	* @warning 13 caractères max.
-	* @var string $num_compte
+	* Rib du compte en banque
+	* @warning 30 caractères max.
+	* @var string $rib
 	*/
-	public $num_compte;
+	public $rib;
 	/**
 	* L'adhérent paye-t-il par prélèvement avec un compte à la Société Générale ?
 	* @var bool $prelevement
@@ -110,7 +110,7 @@ class Compta_model extends CI_Model {
 			'moyen_payement_cotiz' => $this->moyen_payement_cotiz,
 			'interet_sg' => (int) $this->interet_sg,
 			'compte_sg' => $this->compte_sg,
-			'num_compte' => $this->num_compte,
+			'rib' => $this->rib,
 			'prelevement' => (int) $this->prelevement,
 			'pallier' => $this->pallier,
 			'tarif_intitule' => $this->tarif_intitule,
@@ -133,7 +133,7 @@ class Compta_model extends CI_Model {
 			'moyen_payement_cotiz' => $this->moyen_payement_cotiz,
 			'interet_sg' => (int) $this->interet_sg,
 			'compte_sg' => $this->compte_sg,
-			'num_compte' => $this->num_compte,
+			'rib' => $this->rib,
 			'prelevement' => (int) $this->prelevement,
 			'pallier' => $this->pallier,
 			'tarif_intitule' => $this->tarif_intitule,
@@ -187,7 +187,7 @@ class Compta_model extends CI_Model {
 		$this->moyen_payement_cotiz = $row->moyen_payement_cotiz;
 		$this->interet_sg = (bool) $row->interet_sg;
 		$this->compte_sg = (bool) $row->compte_sg;
-		$this->num_compte = $row->num_compte;
+		$this->rib = $row->rib;
 		$this->prelevement = (bool) $row->prelevement;
 		$this->pallier = $row->pallier;
 		$this->tarif_intitule = $row->tarif_intitule;
@@ -233,7 +233,7 @@ class Compta_model extends CI_Model {
 
 		foreach($query->result() as $compta)
 		{
-			array_push($resultat, $compta->adherent_id);
+			array_push($resultat, (int) $compta->adherent_id);
 		}
 
 		return $resultat;

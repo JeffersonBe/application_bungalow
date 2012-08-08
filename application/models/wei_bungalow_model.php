@@ -203,7 +203,7 @@ class Wei_bungalow_model extends CI_Model {
 
 		foreach($query->result() as $bungalow)
 		{
-			array_push($resultat, $bungalow->id);
+			array_push($resultat, (int) $bungalow->id);
 		}
 
 		return $resultat;

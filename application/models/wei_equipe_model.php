@@ -167,7 +167,7 @@ class Wei_equipe_model extends CI_Model {
 
 		foreach($query->result() as $equipe)
 		{
-			array_push($resultat, $equipe->id);
+			array_push($resultat, (int) $equipe->id);
 		}
 
 		return $resultat;

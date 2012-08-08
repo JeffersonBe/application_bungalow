@@ -8,6 +8,7 @@ or exit("No tests running in production environment");
 * @see http://www.anthony-verez.fr
 * @since 07/2012
 */
+
 class Adherent_model_test extends CI_Controller {
 	public function index()
 	{
@@ -31,7 +32,7 @@ class Adherent_model_test extends CI_Controller {
 
 	public function test_nouvel_adherent()
 	{
-		$adherent = new $this->Adherent_model;
+		$adherent = new $this->Adherent_model();
 		$adherent->prenom = "John";
 		$adherent->nom = "Doe";
 		$adherent->ecole = "tsp";
@@ -83,14 +84,12 @@ class Adherent_model_test extends CI_Controller {
 	{
 		$adherents = $this->Adherent_model->chercher(array());
 		$this->unit->run($adherents, 'is_array', 'test_chercher_adherent vide is_array');
-		$this->unit->run($adherents, 'is_array', 'test_lister_adherent vide is_array');
 		$adherents = $this->Adherent_model->chercher(array('nom' => 'Doe'));
 		$this->unit->run($adherents, 'is_array', 'test_chercher_adherent Doe is_array');
-		$this->unit->run($adherents, 'is_array', 'test_lister_adherent Doe is_array');
-		$this->unit->run(count($adherents), 2, 'test_lister_adherent Doe count');
+		$this->unit->run(count($adherents), 2, 'test_chercher_adherent Doe count');
 		$adherents = $this->Adherent_model->chercher($contraintes);
 		$this->unit->run($adherents, 'is_array', 'test_chercher_adherent Johanna is_array');
-		$this->unit->run(count($adherents), 1, 'test_lister_adherent Johanna count');
-		$this->unit->run($adherents[0], $id1, 'test_lister_adherent Johanna id');
+		$this->unit->run(count($adherents), 1, 'test_chercher_adherent Johanna count');
+		$this->unit->run($adherents[0], $id1, 'test_chercher_adherent Johanna id');
 	}
 }

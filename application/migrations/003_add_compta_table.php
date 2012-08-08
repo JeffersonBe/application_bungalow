@@ -26,7 +26,7 @@ class Migration_Add_compta_table extends CI_Migration {
 			`moyen_payement_cotiz` varchar(20) NOT NULL,
 			`interet_sg` tinyint(1) unsigned DEFAULT NULL,
 			`compte_sg` tinyint(1) unsigned NOT NULL,
-			`num_compte` varchar(13) DEFAULT NULL,
+			`rib` varchar(30) DEFAULT NULL,
 			`prelevement` tinyint(1) unsigned NOT NULL,
 			`pallier` varchar(10) DEFAULT NULL,
 			`tarif_intitule` varchar(30) NOT NULL,
