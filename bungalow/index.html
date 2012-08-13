@@ -40,43 +40,62 @@
 	</div>
 	<div id="inscription">
 		<form class="eight columns centered">
-			<h3 id="titreFormulaire" class="text-center">Formulaire d'inscription</h3>
-			<div class="six columns">
-				<label>Pr&eacute;nom</label>
+			<h3 class="text-center">Formulaire d'inscription</h3>
+			<div class="row">
+				<div class="six columns">
+					<label>Pr&eacute;nom</label>
+						<input type="text" required>
+				</div>
+				<div class="six columns">
+				<label>Nom</label>
 					<input type="text" required>
-			</div>
-			<div class="six columns">
-			<label>Nom</label>
-				<input type="text" required>
-			</div>
-			<section>
-				<div class="bungalow three columns">
-					<p class="text-center">Malesuada</p>
-					<input type="radio" name="bungalows" value="Bleu" >1
 				</div>
-				<div class=" bungalow three columns">
-					<input type="radio" name="bungalows" value="Rouge" >2
+			</div>
+			
+			<div class="row rangee">
+				<div class="bungalow three columns mobile-two">
+					<input type="text" placeholder="Donnez un nom au bungalow"/>
+					<div id="bungalows" class="row">
+						<p id="informationBungalow" class="text-center">
+							<span class="nombrePresent">2</span>/<span class="nombreCapacite">10</span>
+						</p>
+					</div>
+					<div class="panneauSelection bleu">
+							<p class="text-center"><label for="radio1"><input name="radio1" type="radio" id="radio1" style="display:none;"><span class="custom radio"></span></label></p>
+					</div>
 				</div>
-				<div class=" bungalow three columns">
+				<div class="bungalow three columns mobile-two">
+					<input type="text" placeholder="Donnez un nom"/>
+					<div class="one bleu columns centered"><input type="radio" name="bungalows" value="Rouge"/>2</div>
+				</div>
+				<div class="bungalow three columns mobile-two">
+					<input type="text" placeholder="Donnez un nom"/>
 					<input type="radio" name="bungalows" value="Vert" >3
 				</div>
-				<div class=" bungalow three columns">
+				<div class="bungalow three columns mobile-two">
+					<input type="text" placeholder="Donnez un nom"/>
 					<input type="radio" name="bungalows" value="Noir" >4
 				</div>
-				<div class=" bungalow three columns">
+			</div><!-- fin de rangee-->
+			<div class="row rangee">
+				<div class="bungalow three columns mobile-two">
+					<input type="text" placeholder="Donnez un nom"/>
 					<input type="radio" name="bungalows" value="Bleu" >5
 				</div>
-				<div class=" bungalow three columns">
+				<div class="bungalow three columns mobile-two"> 
+					<input type="text" placeholder="Donnez un nom"/>
 					<input type="radio" name="bungalows" value="Rouge" >6
 				</div>
-				<div class="bungalow three columns">
+				<div class="bungalow three columns mobile-two">
+					<input type="text" placeholder="Donnez un nom"/>
 					<input type="radio" name="bungalows" value="Vert" >7
 				</div>
-				<div class="bungalow three columns">
+				<div class="bungalow three columns mobile-two">
+					<input type="text" placeholder="Donnez un nom"/>
 					<input type="radio" name="bungalows" value="Noir" >8
 				</div>
-			</section>
-		<input type="submit" value="Let's Go" class="button">
+			</div>
+			<p class="text-center"><input type="submit" value="Let's Go" class="button"></p>
 		</form>
 	</div>
 </div>

@@ -910,9 +910,15 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
 	        padding: 15px 0;
 }
 
+.rangee {
+	background-color: rgba(255,255,255,0.92);
+	padding: 5px 0px 5px 0px;
+	margin: 10px 0px 10px 0px;
+}
+
 .bungalow {
-	background-color:rgba(253,253,253,0.88);
-	height: 200px;
+	
+	height: 150px;
 }
 
 body, img { 
@@ -922,14 +928,37 @@ body, img {
     -webkit-transition:all .2s linear;
 }
 
-#slide1 {
-   background: url(../images/jpeg.jpeg) center 0 no-repeat fixed;
+#bungalows {
+	height: 60px;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background-image: url(../images/bungalow.png);
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
-#slide2 {
-   background: url(../images/slide2-bg.jpeg) center 0 no-repeat fixed;
+#informationBungalow {
+	margin: 25px 0 0 0;
+	color: white;
 }
 
-#slide3 {
-   background: url(../images/slide3-bg.jpeg) center 0 no-repeat fixed;
+.nombrePresent, .nombreCapacite {
+	font: 1.4em;
+	background-color: white;
+	color: black;
+	font-size: 16px;
+	padding: 2px;
+	margin: 0 5px;
+}
+
+.panneauSelection {
+	width: 100%;
+	height: 20px;
+	margin: 5px 0 0 0;
+}
+
+.bleu {
+	background-color: #4a83ff;
+	color: #4a83ff;
 }
