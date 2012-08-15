@@ -88,6 +88,7 @@ class Compta_sei_model extends CI_Model {
 		);
 
 		$this->db->where('id', $this->id);
+		$this->db->update('compta_sei', $data);
 	}
 
 	/**

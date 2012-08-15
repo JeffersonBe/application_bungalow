@@ -89,8 +89,8 @@ class Compta_model_test extends CI_Controller {
 	public function test_verifier_suppression_compta($id_compta)
 	{
 		$chercher = $this->Compta_model->chercher(['id' => $id_compta]);
-		$this->unit->run($chercher, 'is_array', 'test_nouvelle_compta is_array chercher');
-		$this->unit->run(count($chercher), 0, 'test_nouvelle_compta taille chercher');
+		$this->unit->run($chercher, 'is_array', 'test_verifier_suppression_compta is_array chercher');
+		$this->unit->run(count($chercher), 0, 'test_verifier_suppression_compta taille chercher');
 	}
 
 	public function test_charger_id_compta($id_compta)
