@@ -54,6 +54,7 @@ class Wei_bungalow_model extends CI_Model {
 
 	/**
 	* Nombre de places prises dans le bungalow en cours
+	* @todo test
 	* @return int nombre de places prises
 	*/
 	public function places_prises_bungalow()
@@ -191,7 +192,9 @@ class Wei_bungalow_model extends CI_Model {
 			}
 		}
 
-		$this->db->limit($limite, $offset);
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
 		$query = $this->db->get('wei_bungalow');
 
 		$resultat = array();

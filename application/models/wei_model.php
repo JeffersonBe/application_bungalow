@@ -26,12 +26,12 @@ class Wei_model extends CI_Model {
 	* objet de l'adhérent ayant l'id adherent_id
 	* @var Adherent_model $_adherent
 	*/
-	private $interet;
+	private $_adherent;
 	/**
 	* L'adhérent est intéressé par le WEI ?
 	* @var bool $interet
 	*/
-	private $_adherent;
+	public $interet;
 	/**
 	* L'adhérent va au WEI ?
 	* @var bool $wei
@@ -81,6 +81,9 @@ class Wei_model extends CI_Model {
 	/**
 	* Combien de places reste-t-il au wei ?
 	*
+	* @note Fait la différence entre les capacité des bungalows et les personnes s'étant inscrites
+	*       (pas forcément de bungalow déjà attribué)
+	* @todo test
 	* @return int nombre de places restantes
 	*/
 	public function places_restantes_wei()
@@ -97,7 +100,7 @@ class Wei_model extends CI_Model {
 
 			SELECT 0 , COUNT( * ) AS participants
 			FROM `wei`
-			WHERE `bungalow_id` IS NOT NULL
+			WHERE `wei` = 1
 			)
 			) AS T
 		");
@@ -195,5 +198,47 @@ class Wei_model extends CI_Model {
 		$this->_equipe = $this->Wei_equipe_model->charger($this->equipe_id);
 		$this->modification = $row->modification;
 		return clone $this;
+	}
+
+	/**
+	* Cherche des séjours wei selon des contraintes
+	*
+	* @param array $contraintes tableau associatif des contraintes $colonne => $recherche
+	* @param int $limite optionnel nombre limite de de séjours wei
+	* @param int $offset optionnel offset (décalage)
+	* @return int array tableau des id des adhérents
+	*         (permet de faire des inclusions, unions, exclusions, ...)
+	*/
+	public function chercher($contraintes, $limite=0, $offset=0)
+	{
+		$this->db->select('id');
+
+		foreach($contraintes as $colonne => $recherche)
+		{
+			if ($recherche)
+			{
+				// %recherche%
+				$this->db->like($colonne, $recherche);
+			}
+		}
+
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
+		$query = $this->db->get('wei');
+
+		$resultat = array();
+
+		if ($query->num_rows() == 0)
+		{
+			return $resultat;
+		}
+
+		foreach($query->result() as $wei)
+		{
+			array_push($resultat, (int) $wei->adherent_id);
+		}
+
+		return $resultat;
 	}
 }

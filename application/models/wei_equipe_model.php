@@ -103,6 +103,7 @@ class Wei_equipe_model extends CI_Model {
 	* Liste les membres d'un bungalow selon des critères optionnels de
 	* classement et de limite
 	*
+	* @todo test
 	* @param int $limite optionnel nombre limite de bungalows
 	* @param int $offset optionnel offset (décalage)
 	* @param string $ordre_key optionnel colonne selon laquelle s'effectue l'ordre
@@ -155,7 +156,9 @@ class Wei_equipe_model extends CI_Model {
 			}
 		}
 
-		$this->db->limit($limite, $offset);
+		if ($limite)
+			$this->db->limit($limite, $offset);
+
 		$query = $this->db->get('wei_equipe');
 
 		$resultat = array();

@@ -20,6 +20,9 @@ class All_test extends CI_Controller {
 			'profil_model_test.php' => 'Profil_model_test',
 			'sei_model_test.php' => 'Sei_model_test',
 			'stats_model_test.php' => 'Stats_model_test',
+			'wei_bungalow_model_test.php' => 'Wei_bungalow_model_test',
+			'wei_equipe_model_test.php' => 'Wei_equipe_model_test',
+			'wei_model_test.php' => 'Wei_model_test',
 		);
 
 		foreach ($tests as $file => $model)
