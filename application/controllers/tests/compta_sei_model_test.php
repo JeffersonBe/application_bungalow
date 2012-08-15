@@ -6,7 +6,7 @@ or exit("No tests running in production environment");
 * @author Anthony VEREZ (netantho@minet.net)
 *         président de MiNET 2012-2013
 * @see http://www.anthony-verez.fr
-* @since 07/2012
+* @since 08/2012
 */
 
 class Compta_sei_model_test extends CI_Controller {

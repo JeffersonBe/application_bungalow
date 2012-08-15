@@ -16,13 +16,14 @@ class All_test extends CI_Controller {
 			'adherent_model_test.php' => 'Adherent_model_test',
 			'compta_model_test.php' => 'Compta_model_test',
 			'compta_sei_model_test.php' => 'Compta_sei_model_test',
+			'compta_wei_model_test.php' => 'Compta_wei_model_test',
 		);
 
 		foreach ($tests as $file => $model)
 		{
 			require_once($file);
 
-			$objet = eval('return new Adherent_model_test();');
+			$objet = eval('return new '.$model.'();');
 			$objet->index();
 		}
 	}
