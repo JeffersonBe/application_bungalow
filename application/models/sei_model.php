@@ -164,10 +164,10 @@ class Sei_model extends CI_Model {
 	* @param string $jour ('sam'|'dim'|'lun'|'mar'|'mer'|'jeu')
 	* @param string $ordre_key optionnel colonne selon laquelle s'effectue l'ordre
 	* @param string $ordre_direction optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
-	* @return objet array objets contenant adherent, sei et compta_sei
+	* @return object array objets contenant adherent, sei et compta_sei
 	*                     des adhérent mangeant au bbq du jour voulu
 	*/
-	public function qui_mange($jour, $ordre_key='id', $ordre_direction='desc')
+	public function qui_mange($jour, $ordre_key='sei.id', $ordre_direction='desc')
 	{
 		$this->db->select('*');
 		$this->db->from('sei');

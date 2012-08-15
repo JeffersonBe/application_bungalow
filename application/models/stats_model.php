@@ -11,17 +11,6 @@ par mysql, car elles sont stockées dans des vues
 * @since 07/2012
 */
 class Stats_model extends CI_Model {
-	/**
-	* Nombre d'éléments dans un groupe
-	* @var int $nb;
-	*/
-	public $nb;
-	/**
-	* Pourcentage d'éléments du groupe par rapport au total
-	* @var int $pourcentage
-	*/
-	public $pourcentage;
-
 	function __construct()
 	{
 		parent::__construct();
@@ -36,11 +25,13 @@ class Stats_model extends CI_Model {
 		$ecoles = array();
 
 		$query = $this->db->get(
-			'vue_stats_ecole',
+			'vue_stats_ecole'
 		);
 
 		foreach($query->result() as $ecole)
 		{
+			$ecole->nb = (int) $ecole->nb;
+			$ecole->pourcentage = (float) $ecole->pourcentage;
 			array_push($ecoles, $ecole);
 		}
 
@@ -56,11 +47,13 @@ class Stats_model extends CI_Model {
 		$sexes = array();
 
 		$query = $this->db->get(
-			'vue_stats_sexe',
+			'vue_stats_sexe'
 		);
 
 		foreach($query->result() as $sexe)
 		{
+			$sexe->nb = (int) $sexe->nb;
+			$sexe->pourcentage = (float) $sexe->pourcentage;
 			array_push($sexes, $sexe);
 		}
 
