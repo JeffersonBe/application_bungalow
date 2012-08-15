@@ -17,6 +17,7 @@ class All_test extends CI_Controller {
 			'compta_model_test.php' => 'Compta_model_test',
 			'compta_sei_model_test.php' => 'Compta_sei_model_test',
 			'compta_wei_model_test.php' => 'Compta_wei_model_test',
+			'profil_model_test.php' => 'Profil_model_test',
 		);
 
 		foreach ($tests as $file => $model)
