@@ -1,8 +1,13 @@
 <div id="main" class="row">
 	<?php echo form_open('backend/adherent/chercher'); ?>
 	<div class="six columns">
-		<h1 class="ten subheader mobile-four columns centered">Rechercher</h1>
-		<form>
+<!-- 		<h1 class="ten subheader mobile-four columns centered">Rechercher</h1> -->
+		<form class='custom'>
+		<fieldset>
+		
+		<legend>Rechercher</legend>
+			<?php echo validation_errors(); ?> 
+
 			<div class="six columns">
 				<?php
 				$input = array(
@@ -60,9 +65,9 @@
 					<br />Promotion<br />
 				</label>
 				<select name="promotion">
-					<option value="2012-2015">2012 - 2015</option>
-					<option value="2011-2014">2011 - 2014</option>
-					<option value="2010-2013">2010 - 2013</option>
+					<option value="2015" <?php echo set_select('promotion', '2015', TRUE); ?> >2012 - 2015</option>
+					<option value="2014" <?php echo set_select('promotion', '2014'); ?> >2011 - 2014</option>
+					<option value="2013" <?php echo set_select('promotion', '2013'); ?> >2010 - 2013</option>
 				</select>
 			</div>
 			<div class="twelve columns"><br />
@@ -71,7 +76,7 @@
 					$input = array(
 						'name' => 'sexe',
 						'id' => 'homme',
-						'value' => 'homme',
+						'value' => 'm',
 						'checked' => set_radio('sexe', 'homme'),
 					);
 
@@ -84,7 +89,7 @@
 					$input = array(
 						'name' => 'sexe',
 						'id' => 'femme',
-						'value' => 'femme',
+						'value' => 'f',
 						'checked' => set_radio('sexe', 'femme'),
 					);
 
@@ -94,12 +99,23 @@
 				</div>
 			</div>
 			<div id="ajoutModfibtn" class="twelve columns">
-				<a href="#" class="twelve small button columns">Chercher</a>
+				<?php
+				$input = array(
+					'name' => 'submit',
+					'value' => 'Chercher',
+					'class' => 'twelve small button columns',
+					'style' => 'margin-bottom: 10px;',
+				);
+
+				echo form_submit($input);
+				?>
 			</div>
+
+		</fieldset>
 		</form>
 	</div>
 	<div id="ajouter" class="six columns">
-		<a href="#" class="twelve small button columns"><h1>Nouvel adhérent</h1></a>
+		<?php echo anchor("backend/adherent/nouveau", "Nouvel adhérent", array('class'=> "twelve large button columns")); ?>
 	</div>
 	<div id="stastiques" class="six columns"><br /><br />
 		<div class="panel">

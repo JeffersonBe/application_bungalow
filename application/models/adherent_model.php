@@ -179,12 +179,15 @@ class Adherent_model extends CI_Model {
 	* @param array $contraintes tableau associatif des contraintes $colonne => $recherche
 	* @param int $limite optionnel nombre limite d'adhérents
 	* @param int $offset optionnel offset (décalage)
+	* @param string $ordre_key optionnel $colonne selon laquelle s'effectue l'ordre
+	* @param string $ordre_direction optionnel $direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
 	* @return int array tableau des id des adhérents
 	*         (permet de faire des inclusions, unions, exclusions, ...)
 	*/
-	public function chercher($contraintes, $limite=0, $offset=0)
+	public function chercher($contraintes, $limite=0, $offset=0, $ordre_key='id', $ordre_direction='desc')
 	{
 		$this->db->select('id');
+		$this->db->order_by($ordre_key, $ordre_direction);
 
 		foreach($contraintes as $colonne => $recherche)
 		{

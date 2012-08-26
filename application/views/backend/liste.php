@@ -5,16 +5,34 @@
 	?>
 	<div id="activite" class="row">
 		<table class="ten columns centered">
-			<tr>
-				<td class="three columns">Aenean</td>
-				<td class="three columns">Ridiculus</td>
-				<td class="three columns">
-					<a href="#" class="tiny secondary button">Consulter</a>
-				</td>
-				<td class="three columns">
-					<a href="#" class="tiny secondary button">Modifier</a>
-				</td>
-			</tr>
+			<?php
+			foreach($adherents as $adherent)
+			{
+			?>
+				<tr>
+					<td class="three columns"><?php echo $adherent->nom; ?></td>
+					<td class="three columns"><?php echo $adherent->prenom; ?></td>
+					<td class="two columns">
+						<?php echo anchor("backend/adherent/voir/".$adherent->id, "Consulter", array('class' => "tiny regular button")); ?>
+					</td>
+					<td class="two columns">
+						<?php echo anchor("backend/adherent/modifier/".$adherent->id, "Modifier", array('class' => "tiny secondary button")); ?>
+					</td>
+					<td class="two columns">
+						<?php echo anchor("backend/adherent/supprimer/".$adherent->id, "Supprimer",
+							array(
+								'class' => "tiny alert button",
+								'onclick' => "suppression_adherent()",
+								'target' => '_blank',
+							)
+						); ?>
+					</td>
+				</tr>
+			<?php
+			}
+			?>
 		</table>
 	</div>
 </div>
+
+<?php echo js('showtime'); ?>
