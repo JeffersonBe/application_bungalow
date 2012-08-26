@@ -45,7 +45,11 @@ class Wei_model extends CI_Model {
 	public $clef;
 	/**
 	* État de la réservation du WEI
-	* @todo états possibles
+	* État possibles :
+	* 0 : non inscrit
+	* 1 : annulé
+	* 2 : inscrit
+	* 3 : payement effectué
 	* @warning 1 chiffre max
 	* @var int $etat_reservation
 	*/
@@ -84,12 +88,12 @@ class Wei_model extends CI_Model {
 	* @note Fait la différence entre les capacité des bungalows et les personnes s'étant inscrites
 	*       (pas forcément de bungalow déjà attribué)
 	* @todo test
-	* @return int nombre de places restantes
+	* @return array clés : "places_restantes", "places_totales"
 	*/
 	public function places_restantes_wei()
 	{
 		$query = $this->db->query("
-			SELECT sum( capacite ) - sum( participants ) AS places_restantes
+			SELECT sum( capacite ) - sum( participants ) AS places_restantes, sum( capacite ) AS places_totales
 			FROM (
 			(
 
@@ -106,7 +110,11 @@ class Wei_model extends CI_Model {
 		");
 
 		$row = $query->row();
-		return $row->places_restantes;
+
+		return array(
+			"places_restantes" => $row->places_restantes,
+			"places_totales" => $row->places_totales,
+		);
 	}
 
 	/**

@@ -5,9 +5,18 @@ Auteurs
 
 * Jefferson BONNAIRE, jefferson.bonnaire@showtime2012.fr
   Respo Web Showtime 2012
-* Anthony VEREZ netantho@minet.net
+* Anthony VEREZ, netantho@minet.net
   Président de MiNET 2012-2013
 
+TODO
+====
+
+* Statistiques
+** Cotisants / Non cotisants
+** Boursier / Non boursier
+** Images / Graphs pour les stats
+* Couleurs pour les équipes
+* Vérification de la clé de RIB
 
 Installation
 ===========

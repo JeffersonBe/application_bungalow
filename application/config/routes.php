@@ -41,6 +41,8 @@
 $route['default_controller'] = "accueil";
 $route['404_override'] = '';
 
+$route['backend'] = "backend/accueil";
+$route['backend/liste'] = "backend/adherent";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
