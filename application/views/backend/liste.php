@@ -2,6 +2,16 @@
 	<?php
 	if (isset($titre_recherche))
 		echo "<h1 class='ten subheader mobile-four columns centered'>".$titre_recherche."</h1>";
+
+	if (isset($contraintes_render))
+	{
+		echo "<h2>Contraintes<h2><ul>";
+		foreach($contraintes_render as $titre => $valeur)
+		{
+			echo "<li><b>".$titre."</b> : ".$valeur."</li>"; 
+		}
+		echo "</ul>";
+	}
 	?>
 	<div id="liste" class="row">
 		<table class="ten columns centered">

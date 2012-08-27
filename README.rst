@@ -19,6 +19,8 @@ TODO
 * Vérification de la clé de RIB
 * Pagination au niveau des vues ?
 
+Dans le code, chercher FIXME, TODO, @todo, @fixme
+
 Installation
 ===========
 

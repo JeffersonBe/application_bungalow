@@ -98,19 +98,135 @@
 					?>
 				</div>
 			</div>
-			<div id="ajoutModfibtn" class="twelve columns">
+			<div class="twelve columns"><hr />
+				<div class="six mobile-two columns">
+					<?php
+					$input = array(
+						'name' => 'prelevement',
+						'id' => 'prelevement_oui',
+						'value' => 'oui',
+						'checked' => set_radio('prelevement', 'prelevement_oui'),
+					);
+
+					echo form_radio($input);
+					echo form_label('Avec prélèvement automatique', 'prelevement_oui', array('style' => 'display: inline;',));
+					?>
+				</div>
+				<div class="six mobile-two columns">
+					<?php
+					$input = array(
+						'name' => 'prelevement',
+						'id' => 'prelevement_non',
+						'value' => 'non',
+						'checked' => set_radio('prelevement', 'prelevement_non'),
+					);
+
+					echo form_radio($input);
+					echo form_label('Sans prélèvement automatique', 'prelevement_non', array('style' => 'display: inline;',));
+					?>
+				</div>
+			</div>
+			<div class="twelve columns"><br />
+				<div class="six mobile-two columns">
+					<?php
+					$input = array(
+						'name' => 'boursier',
+						'id' => 'boursier_oui',
+						'value' => 'oui',
+						'checked' => set_radio('boursier', 'boursier_oui'),
+					);
+
+					echo form_radio($input);
+					echo form_label('Boursier', 'boursier_oui', array('style' => 'display: inline;',));
+					?>
+				</div>
+				<div class="six mobile-two columns">
+					<?php
+					$input = array(
+						'name' => 'boursier',
+						'id' => 'boursier_non',
+						'value' => 'non',
+						'checked' => set_radio('boursier', 'boursier_non'),
+					);
+
+					echo form_radio($input);
+					echo form_label('Non boursier', 'boursier_non', array('style' => 'display: inline;',));
+					?><br />
+				</div>
+			</div>
+			<div class="twelve columns"><hr>
+				<div class="six columns">
+					<?php
+					$input = array(
+						'name' => 'disi',
+						'value' => set_value('disi', ''),
+						'placeholder' => 'Identifiant DISI',
+						'id' => 'disi',
+					);
+					echo form_label('Identifiant DISI', 'disi');
+					echo form_input($input);
+					?>
+				</div>
+				<div class="six columns">
+					<?php
+					$input = array(
+						'name' => 'portable',
+						'value' => set_value('portable', ''),
+						'placeholder' => 'Téléphone portable',
+						'id' => 'portable',
+					);
+					echo form_label('Téléphone portable', 'portable');
+					echo form_input($input);
+					?>
+				</div>
+			</div>
+			<div class="twelve columns">
+				<?php
+				$input = array(
+					'name' => 'email',
+					'value' => set_value('email', ''),
+					'placeholder' => 'Adresse e-mail',
+					'id' => 'email',
+				);
+				echo form_label('Adresse e-mail', 'email');
+				echo form_input($input);
+				?>
+			</div>
+			<div class="twelve columns">
+				<?php
+				$input = array(
+					'name' => 'regime',
+					'value' => set_value('regime', ''),
+					'placeholder' => 'Halal, Casher, Végétarien, ...',
+					'id' => 'regime',
+				);
+				echo form_label('Régime', 'regime');
+				echo form_input($input);
+				?>
+			</div>
+			<hr><div id="chercherbtn" class="six columns">
 				<?php
 				$input = array(
 					'name' => 'submit',
 					'value' => 'Chercher',
 					'class' => 'twelve small button columns',
-					'style' => 'margin-bottom: 10px;',
 				);
 
 				echo form_submit($input);
 				?>
 			</div>
+			<div id="viderbtn" class="six columns">
+				<?php
+				$input = array(
+					'name' => 'reset',
+					'value' => 'Vider la recherche',
+					'class' => 'twelve small alert button columns',
+					'style' => 'margin-bottom: 10px;',
+				);
 
+				echo form_reset($input);
+				?>
+			</div>
 		</fieldset>
 		</form>
 	</div>
