@@ -71,6 +71,7 @@ class Wei_bungalow_model_test extends CI_Controller {
 	{
 		$bungalow = new $this->Wei_bungalow_model;
 		$bungalow->equipe_id = $equipe_id;
+		$bungalow->nom = 'plop';
 		$bungalow->numero = '42';
 		$bungalow->capacite = 8;
 		$id_bungalow = $bungalow->enregistrer();
@@ -80,6 +81,7 @@ class Wei_bungalow_model_test extends CI_Controller {
 		$bungalow = $this->Wei_bungalow_model->charger($id_bungalow);
 		$this->unit->run($bungalow, 'is_object', 'test_nouveau_bungalow is_object charger');
 		$this->unit->run($bungalow->equipe_id, $equipe_id, 'test_nouveau_bungalow equipe_id charger');
+		$this->unit->run($bungalow->numero, 'plop', 'test_nouveau_bungalow nom charger');
 		$this->unit->run($bungalow->numero, '42', 'test_nouveau_bungalow numero charger');
 		$this->unit->run($bungalow->capacite, 8, 'test_nouveau_bungalow capacite charger');
 

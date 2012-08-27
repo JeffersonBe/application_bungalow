@@ -34,6 +34,12 @@ class Wei_bungalow_model extends CI_Model {
 	*/
 	public $numero;
 	/**
+	* Nom du bungalow
+	* @warning 50 caractères max.
+	* @var string $nom
+	*/
+	public $nom;
+	/**
 	* Capacité du bungalow
 	* @warning 2 chiffres max.
 	* @var int $capacite
