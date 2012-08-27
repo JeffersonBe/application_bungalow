@@ -288,19 +288,34 @@
 	</div>
 	<div id="activite" class="twelve columns">
 		<br /><br />
-		<h1 class="ten subheader mobile-four columns centered">Activit&eacute;s r&eacute;centes</h1>
+		<h1 class="ten subheader mobile-four columns centered">Activit&eacute;s r&eacute;centes</h1><br />
 		<table class="twelve mobile-for columns centered">
+
 			<tr>
-				<td class="four mobile-four columns">00-00-0000:00h00</td>
-				<td class="two mobile-two columns">Aenean</td>
-				<td class="two mobile-two columns">Ridiculus</td>
-				<td class="two mobile-two columns">
-					<a href="#" class="tiny secondary button">Consulter</a>
-				</td>
-				<td class="two mobile-two columns">
-					<a href="#" class="tiny secondary button">Modifier</a>
-				</td>
+				<th class="two mobile-two columns">Date</th>
+				<th class="two mobile-two columns">Table</th>
+				<th class="four mobile-four columns">Entité</th>
+				<th class="two mobile-two columns"></th>
+				<td class="two mobile-two columns"></th>
 			</tr>
+			<?php
+			foreach($logs as $log)
+			{
+			?>
+				<tr>
+					<td class="two mobile-two columns"><?php echo $log->modification; ?></td>
+					<td class="two mobile-two columns"><?php echo $log->table; ?></td>
+					<td class="four mobile-four columns"><?php echo $log->entite; ?></td>
+					<td class="two mobile-two columns">
+						<?php echo anchor($log->consulter, "Consulter", array("class" =>"tiny button")); ?>
+					</td>
+					<td class="two mobile-two columns">
+						<?php echo anchor($log->modifier, "Modifier", array("class" =>"tiny secondary button")); ?>
+					</td>
+				</tr>
+			<?php
+			}
+			?>
 		</table>
 	</div>
 </div>

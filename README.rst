@@ -18,6 +18,7 @@ TODO
 * Couleurs pour les équipes
 * Vérification de la clé de RIB
 * Pagination au niveau des vues ?
+* Tests pour modèle Log
 
 Dans le code, chercher FIXME, TODO, @todo, @fixme
 
