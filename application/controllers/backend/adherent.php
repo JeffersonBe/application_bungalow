@@ -103,4 +103,9 @@ class Adherent extends CI_Controller {
 			$this->load->view('backend/footer');
 		}
 	}
+
+	public function nouveau()
+	{
+		// Créer directement toutes les lignes dans les tables pour ne pas faire foirer les jointures
+	}
 }

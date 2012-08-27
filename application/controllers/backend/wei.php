@@ -10,10 +10,11 @@
 */
 
 class Wei extends CI_Controller {
-
-	public function index(){
+	public function index()
+	{
 		$this->load->view('backend/header', array('titre' => 'WEI'));
 		$this->load->view('backend/menu');
+		$this->load->view('backend/wei');
 		$this->load->view('backend/footer');
 	}
 }

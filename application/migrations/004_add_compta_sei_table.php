@@ -21,7 +21,7 @@ class Migration_Add_compta_sei_table extends CI_Migration {
 			CREATE TABLE IF NOT EXISTS `compta_sei` (
 			`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 			`adherent_id` int(11) unsigned NOT NULL,
-			`mode_payement` varchar(30) NOT NULL,
+			`mode_payement` varchar(30) DEFAULT NULL,
 			`bbq_paye` tinyint(1) NOT NULL,
 			`prix_paye` float DEFAULT NULL,
 			`modification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

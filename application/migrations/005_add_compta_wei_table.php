@@ -22,10 +22,10 @@ class Migration_Add_compta_wei_table extends CI_Migration {
 			CREATE TABLE IF NOT EXISTS `compta_wei` (
 			`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 			`adherent_id` int(11) unsigned NOT NULL,
-			`tarif_intitule` varchar(30) NOT NULL,
-			`prix` float NOT NULL,
-			`moyen_payement` varchar(20) NOT NULL,
-			`caution` tinyint(1) unsigned NOT NULL,
+			`tarif_intitule` varchar(30) DEFAULT NULL,
+			`prix` float DEFAULT NULL,
+			`moyen_payement` varchar(20) DEFAULT NULL,
+			`caution` tinyint(1) unsigned DEFAULT NULL,
 			`modification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 			PRIMARY KEY (`id`),
 			KEY `adherent_id` (`adherent_id`)

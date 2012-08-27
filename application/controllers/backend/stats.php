@@ -10,8 +10,8 @@
 */
 
 class Stats extends CI_Controller {
-
-	public function index(){
+	public function index() 
+	{
 		$this->load->model('Stats_model');
 		$this->load->model('Wei_model');
 

@@ -3,7 +3,7 @@
 	if (isset($titre_recherche))
 		echo "<h1 class='ten subheader mobile-four columns centered'>".$titre_recherche."</h1>";
 	?>
-	<div id="activite" class="row">
+	<div id="liste" class="row">
 		<table class="ten columns centered">
 			<?php
 			foreach($adherents as $adherent)

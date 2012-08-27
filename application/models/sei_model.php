@@ -173,10 +173,13 @@ class Sei_model extends CI_Model {
 		$this->db->from('sei');
 		$this->db->join('adherent', 'adherent.id = sei.adherent_id');
 		$this->db->join('compta_sei', 'compta_sei.adherent_id = sei.adherent_id');
+		$this->db->join('profil', 'profil.adherent_id = sei.adherent_id');
 		$this->db->where('bbq_'.$jour, 1);
 		$this->db->order_by($ordre_key, $ordre_direction);
 		$query = $this->db->get();
 
-		return $query->result();
+		$result = $query->result();
+		unset($query);
+		return $result;
 	}
 }

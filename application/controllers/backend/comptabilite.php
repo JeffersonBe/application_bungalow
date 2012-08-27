@@ -10,8 +10,8 @@
 */
 
 class Comptabilite extends CI_Controller {
-
-	public function index(){
+	public function index()
+	{
 		$this->load->view('backend/header', array('titre' => 'Comptabilité'));
 		$this->load->view('backend/menu');
 		$this->load->view('backend/footer');
