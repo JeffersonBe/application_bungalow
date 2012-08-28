@@ -169,10 +169,11 @@ class Adherent extends CI_Controller {
 		$this->load->model('Wei_equipe_model');
 		$this->load->model('Wei_bungalow_model');
 		$adherent_id = (int) $adherent_id;
+		$adherent = $this->Adherent_model->charger($adherent_id);
 
 		$wei = $this->Wei_model->charger(False, $adherent_id);
 		$adherent_data = array(
-			"adherent" => $this->Adherent_model->charger($adherent_id),
+			"adherent" => $adherent,
 			"profil" => $this->Profil_model->charger(False, $adherent_id),
 			"compta" => $this->Compta_model->charger(False, $adherent_id),
 			"compta_sei" => $this->Compta_sei_model->charger(False, $adherent_id),
@@ -187,14 +188,41 @@ class Adherent extends CI_Controller {
 			$adherent_data["wei_bungalow"] = $this->Wei_bungalow_model->charger($wei->bungalow_id);
 		}
 
-		$this->load->view('backend/header', array('titre' => 'Adhérent John Doe'));
+		if ($adherent)
+			$this->load->view('backend/header', array('titre' => 'Adhérent '.$adherent->nom.' '.$adherent->prenom));
+		else
+			$this->load->view('backend/header', array('titre' => 'Adhérent Inconnu'));
 		$this->load->view('backend/menu');
 		$this->load->view('backend/adherent', $adherent_data);
 		$this->load->view('backend/footer');
 	}
 
-	public function editer($adherent_id)
+	public function modifier($adherent_id)
 	{
+		$this->load->model('Adherent_model');
+		$this->load->model('Profil_model');
+		$this->load->model('Compta_model');
+		$this->load->model('Compta_sei_model');
+		$this->load->model('Compta_wei_model');
+		$this->load->model('Sei_model');
+		$this->load->model('Wei_model');
+		$this->load->model('Wei_equipe_model');
+		$this->load->model('Wei_bungalow_model');
 
+		$this->load->library('form_validation');
+		$this->load->helper('form');
+
+		$adherent_id = (int) $adherent_id;
+		$adherent = $this->Adherent_model->charger($adherent_id);
+
+		$adherent_data = array();
+
+		if ($adherent)
+			$this->load->view('backend/header', array('titre' => 'Éditer adhérent '.$adherent->nom.' '.$adherent->prenom));
+		else
+			$this->load->view('backend/header', array('titre' => 'Éditer Adhérent Inconnu'));
+		$this->load->view('backend/menu');
+		$this->load->view('backend/adherent_editer', $adherent_data);
+		$this->load->view('backend/footer');
 	}
 }

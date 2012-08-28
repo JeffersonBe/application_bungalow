@@ -46,8 +46,6 @@ class Accueil extends CI_Controller {
 			}
 		}
 
-// 		var_dump($logs);
-
 		$data_accueil = array(
 			"stats_wei" => $this->Wei_model->places_restantes_wei(),
 			"stats_ecoles" => $this->Stats_model->voir_ecoles(),

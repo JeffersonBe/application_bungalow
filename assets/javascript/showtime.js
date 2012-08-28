@@ -65,3 +65,15 @@ function reveal(show, hide)
 	$('#'+hide).hide();
 	$('#'+show).show('slow');
 }
+
+function charge_photo(login) {
+    $(function () {
+        var img = new Image();
+        var lien = "http://trombi.it-sudparis.eu/jpegPhoto.php?dn=uid%3D"+login+"%2Cou%3DPeople%2Cdc%3Dint-evry%2Cdc%3Dfr"
+        $(img).load(function () {
+                    $(this).hide();
+                    $('#photo_adherent').empty().append(this);
+                    $(this).fadeIn();
+        }).attr('src', lien);
+    });
+}
