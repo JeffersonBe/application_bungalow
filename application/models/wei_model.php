@@ -76,6 +76,13 @@ class Wei_model extends CI_Model {
 	* @var Wei_equipe_model $_equipe
 	*/
 	private $_equipe;
+	/**
+    * date de la dernière modification du wei
+	* @note exemple '2012-07-15 00:00:00'
+	* @note Généré et mis à jour automatiquement par mysql
+    * @var string $modification
+    */
+	public $modification;
 	
 	function __construct()
 	{

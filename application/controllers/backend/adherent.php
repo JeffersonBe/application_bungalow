@@ -159,11 +159,33 @@ class Adherent extends CI_Controller {
 
 	public function voir($adherent_id)
 	{
+		$this->load->model('Adherent_model');
+		$this->load->model('Profil_model');
+		$this->load->model('Compta_model');
+		$this->load->model('Compta_sei_model');
+		$this->load->model('Compta_wei_model');
+		$this->load->model('Sei_model');
+		$this->load->model('Wei_model');
+		$this->load->model('Wei_equipe_model');
+		$this->load->model('Wei_bungalow_model');
 		$adherent_id = (int) $adherent_id;
 
+		$wei = $this->Wei_model->charger(False, $adherent_id);
 		$adherent_data = array(
-			"disi" => "dupain_c"
+			"adherent" => $this->Adherent_model->charger($adherent_id),
+			"profil" => $this->Profil_model->charger(False, $adherent_id),
+			"compta" => $this->Compta_model->charger(False, $adherent_id),
+			"compta_sei" => $this->Compta_sei_model->charger(False, $adherent_id),
+			"compta_wei" => $this->Compta_wei_model->charger(False, $adherent_id),
+			"sei" => $this->Sei_model->charger(False, $adherent_id),
+			"wei" => $wei,
 		);
+
+		if ($wei)
+		{
+			$adherent_data["wei_equipe"] = $this->Wei_equipe_model->charger($wei->equipe_id);
+			$adherent_data["wei_bungalow"] = $this->Wei_bungalow_model->charger($wei->bungalow_id);
+		}
 
 		$this->load->view('backend/header', array('titre' => 'Adhérent John Doe'));
 		$this->load->view('backend/menu');

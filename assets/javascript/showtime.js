@@ -55,13 +55,13 @@ function drawSexes(hommes, femmes) {
 	chart.draw(data, options);
 }
 
-function voir_plus_stats(stats)
+function toggle(id)
 {
-	$('#plus_stats').toggle('slow');
+	$('#'+id).toggle('slow');
 }
 
-function plus_chercher()
+function reveal(show, hide)
 {
-	$('#voir_plus_chercher').hide();
-	$('#plus_chercher').show('slow');
+	$('#'+hide).hide();
+	$('#'+show).show('slow');
 }

@@ -1,3 +1,4 @@
+<?php echo js('showtime'); ?>
 <div id="main" class="row">
 	<?php echo form_open('backend/adherent/chercher'); ?>
 	<div class="six columns">
@@ -88,7 +89,7 @@
 					?>
 				</div>
 			</div>
-			<input id='voir_plus_chercher' onclick='plus_chercher()' type='button' class='tiny secondary button' value="Plus d'options">
+			<input id='voir_plus_chercher' onclick='reveal("plus_chercher", "voir_plus_chercher")' type='button' class='tiny secondary button' value="Plus d'options »">
 			<div id='plus_chercher'>
 				<div class="twelve columns">
 					<label for="promotion" class="three mobile-two columns">
@@ -242,7 +243,7 @@
 			<div id='chart_ecoles' style="display: inline-block;"></div>
 			<div id='chart_sexes' style="display: inline-block;"></div>
 		</div><br /><br />
-		<input type='button' class='secondary button' onclick='voir_plus_stats()' value='Plus de stats' />
+		<input type='button' class='secondary button' onclick='toggle("plus_stats")' value='Plus de stats »' />
 		<br /><br />
 		<div id='plus_stats'>
 			<div class="panel">
@@ -338,7 +339,6 @@
 </div>
 <!--Load the AJAX API-->
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<?php echo js('showtime'); ?>
 <?php
 	if (!isset($tem_chart))
 		$tem_chart = 0;
