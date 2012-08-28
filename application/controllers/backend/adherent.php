@@ -213,9 +213,20 @@ class Adherent extends CI_Controller {
 		$this->load->helper('form');
 
 		$adherent_id = (int) $adherent_id;
+
 		$adherent = $this->Adherent_model->charger($adherent_id);
 
-		$adherent_data = array();
+		$wei = $this->Wei_model->charger(False, $adherent_id);
+		$adherent_data = array(
+			"modifier" => True,
+			"adherent" => $adherent,
+			"profil" => $this->Profil_model->charger(False, $adherent_id),
+			"compta" => $this->Compta_model->charger(False, $adherent_id),
+			"compta_sei" => $this->Compta_sei_model->charger(False, $adherent_id),
+			"compta_wei" => $this->Compta_wei_model->charger(False, $adherent_id),
+			"sei" => $this->Sei_model->charger(False, $adherent_id),
+			"wei" => $wei,
+		);
 
 		if ($adherent)
 			$this->load->view('backend/header', array('titre' => 'Éditer adhérent '.$adherent->nom.' '.$adherent->prenom));

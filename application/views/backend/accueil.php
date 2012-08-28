@@ -229,6 +229,7 @@
 				);
 
 				echo form_reset($input);
+				echo form_close();
 				?>
 			</div>
 		</fieldset>
