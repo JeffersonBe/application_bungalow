@@ -14,7 +14,7 @@ TODO
 * Statistiques
 ** Cotisants / Non cotisants
 ** Boursier / Non boursier
-** Images / Graphs pour les stats (Google chart Tools ? https://developers.google.com/chart/)
+** Images / Graphs ~Temps réel
 * Couleurs pour les équipes
 * Vérification de la clé de RIB
 * Pagination au niveau des vues ?

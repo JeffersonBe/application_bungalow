@@ -7,7 +7,6 @@
 	</div>
 </footer>
   <!-- Included JS Files -->
-  <?php echo js('jquery.min'); ?>
   <?php echo js('foundation'); ?>
 </body>
 </html>

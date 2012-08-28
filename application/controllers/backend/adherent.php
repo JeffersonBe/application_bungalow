@@ -156,4 +156,23 @@ class Adherent extends CI_Controller {
 	{
 		// Créer directement toutes les lignes dans les tables pour ne pas faire foirer les jointures
 	}
+
+	public function voir($adherent_id)
+	{
+		$adherent_id = (int) $adherent_id;
+
+		$adherent_data = array(
+			"disi" => "dupain_c"
+		);
+
+		$this->load->view('backend/header', array('titre' => 'Adhérent John Doe'));
+		$this->load->view('backend/menu');
+		$this->load->view('backend/adherent', $adherent_data);
+		$this->load->view('backend/footer');
+	}
+
+	public function editer($adherent_id)
+	{
+
+	}
 }

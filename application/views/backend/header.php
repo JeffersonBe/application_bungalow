@@ -25,4 +25,5 @@
     <?php echo js('html5'); ?>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <?php echo js('jquery.min'); ?>
 </head>
