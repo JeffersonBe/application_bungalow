@@ -904,13 +904,28 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
 .line, .tiles, .menu {
 	height: 150px;
 }
+
+.lineup {
+    height: 75px;
+}
 /*** Panneau ***/
+#panneau32 { background: url(../images/mousse.jpg) center center; }
 
 #panneau33 { background-color: #0085ff; height: 100%: }
 
-#panneau42 {background-color: #ff0822; height: 100%;}
+#panneau42 { background-color: #ff0822; height: 100%; }
+
+#panneau43 { background: url(../images/saut.jpg) center center; }
+
+#panneau44 { background: url(../images/showtime.jpg) center center; background-size: auto 150px; }
+
+#panneau45 { background: url(../images/plage.jpg) center center; }
+
+#panneau52 { background: url(../images/orange.jpg) center center; }
 
 #panneau53 { background: #00b726; height: 100%; }
+
+#panneau54 { background: url(../images/soiree.jpg) center center; }
 
 #inscription {
 	background: url('../images/tileable_wood_texture.png');
