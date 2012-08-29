@@ -898,17 +898,19 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
 
 #main {
 	padding: 0 0 50px 0;
-	margin: 100px auto;
+	margin: 50px auto;
 }
 
 .line, .tiles, .menu {
-	height: 96px;
+	height: 150px;
 }
 /*** Panneau ***/
 
 #panneau33 { background-color: #0085ff; height: 100%: }
 
 #panneau42 {background-color: #ff0822; height: 100%;}
+
+#panneau53 { background: #00b726; height: 100%; }
 
 #inscription {
 	background: url('../images/tileable_wood_texture.png');
