@@ -42,7 +42,7 @@ class Compta_sei_model extends CI_Model {
 	* Montant déjà payé
 	* @var float $prix_paye
 	*/
-	public $prix_paye = 0.;
+	public $prix_paye;
 	/**
     * date de la dernière modification de la comptabilité SEI de l'adhérent
 	* @note exemple '2012-07-15 00:00:00'

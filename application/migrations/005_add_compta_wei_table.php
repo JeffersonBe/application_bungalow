@@ -24,7 +24,6 @@ class Migration_Add_compta_wei_table extends CI_Migration {
 			`adherent_id` int(11) unsigned NOT NULL,
 			`tarif_intitule` varchar(30) DEFAULT NULL,
 			`prix` float DEFAULT NULL,
-			`moyen_payement` varchar(20) DEFAULT NULL,
 			`caution` tinyint(1) unsigned DEFAULT NULL,
 			`modification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 			PRIMARY KEY (`id`),

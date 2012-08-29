@@ -132,14 +132,16 @@ class Wei_model extends CI_Model {
 	*/
 	public function enregistrer()
 	{
+		$bungalow = $this->bungalow_id ? $this->bungalow_id : null;
+		$equipe = $this->equipe_id ? $this->equipe_id : null;
 		$data = array(
 			'adherent_id' => $this->adherent_id,
 			'interet' => (int) $this->interet, 
 			'wei' => (int) $this->wei,
 			'clef' => $this->clef,
 			'etat_reservation' => $this->etat_reservation,
-			'bungalow_id' => $this->bungalow_id,
-			'equipe_id' => (int) $this->equipe_id,
+			'bungalow_id' => $bungalow,
+			'equipe_id' => $equipe,
 		);
 
 		$this->db->insert('wei', $data);
@@ -152,13 +154,15 @@ class Wei_model extends CI_Model {
 	*/
 	public function mettre_a_jour()
 	{
+		$bungalow = $this->bungalow_id ? $this->bungalow_id : null;
+		$equipe = $this->equipe_id ? $this->equipe_id : null;
 		$data = array(
 			'interet' => (int) $this->interet, 
 			'wei' => (int) $this->wei,
 			'clef' => $this->clef,
 			'etat_reservation' => $this->etat_reservation,
-			'bungalow_id' => $this->bungalow_id,
-			'equipe_id' => (int) $this->equipe_id,
+			'bungalow_id' => $bungalow,
+			'equipe_id' => $equipe,
 		);
 
 		$this->db->where('id', $this->id);

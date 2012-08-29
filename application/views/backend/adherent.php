@@ -1,11 +1,24 @@
 <?php echo js('showtime'); ?>
+<?php
+$moyen_payement_options = array(
+	"" => " ",
+	"prelevement" => "Prélèvement",
+	"cheque" => "Chèque",
+	"liquide" => "Liquide",
+);
+?>
 <div id="main" class="row">
 	<?php
 	if ($adherent)
 	{
 	?>
 		<div class="twelve columns">
-			<?php echo anchor("backend/adherent/modifier/".$adherent->id, "Modifier", array("class" => "left button")); ?><br /><br /><br />
+			<div class="two columns">
+				<?php echo anchor("backend/adherent/modifier/".$adherent->id, "Modifier", array("class" => "left button")); ?>
+			</div>
+			<div class="two columns">
+				<?php echo anchor("backend/adherent/supprimer/".$adherent->id, "Supprimer", array("class" => "left alert button")); ?>
+			</div><br /><br /><br />
 			<div class="six columns">
 				<h3>Adhérent</h3>
 				<input type='button' id='voir_plus_adherent' onclick='reveal("plus_adherent", "voir_plus_adherent")' class='tiny secondary button' value="Plus d'informations »" style='margin-bottom: 10px' />
@@ -41,7 +54,7 @@
 						if ($profil->email)
 							echo "<li><b>Adresse e-mail</b> : ".$profil->email."</li>";
 						if ($profil->date_naissance)
-							echo "<li><b>Date de naissance</b> : ".$profil->date_naissance."</li>";
+							echo "<li><b>Date de naissance</b> : ".formater_date_ecran($profil->date_naissance)."</li>";
 						if ($profil->portable)
 							echo "<li><b>Téléphone portable</b> : ".$profil->portable."</li>";
 						if ($profil->fixe)
@@ -71,13 +84,18 @@
 					<input type='button' onclick='toggle("compta")' class='tiny secondary button' value="Voir/Cacher »" style='margin-bottom: 10px' />
 					<ul id="compta">
 						<li><b>Cotisant BDE</b> : <?php echo ($compta->cotisant_bde ? "Oui" : "Non"); ?></li>
-						<li><b>Moyen de payement</b> : <?php echo $compta->moyen_payement_cotiz; ?></li>
-						<li><b>Intérêt pour la Sogé </b> : <?php echo ($compta->interet_sg ? "Oui" : "Non"); ?></li>
+						<li><b>Moyen de payement</b> : <?php echo $moyen_payement_options[$compta->moyen_payement_cotiz]; ?></li>
 						<li><b>Compte à la Sogé</b> : <?php echo ($compta->compte_sg ? "Oui" : "Non"); ?></li>
 						<li><b>RIB</b> : <?php echo $compta->rib; ?></li>
-						<li><b>Prélèvement automatique </b> : <?php echo ($compta->prelevement ? "Oui" : "Non"); ?></li>
 						<li><b>Boursier</b> : <?php echo ($compta->pallier ? "Oui" : "Non"); ?></li>
-						<li><b>Intitulé du tarif</b> : <?php echo $compta->tarif_intitule; ?></li>
+						<li><b>Intitulé du tarif</b> : <?php
+						$tarifs = array(
+							"" => " ",
+							"bde_sg" => "BDE AVEC Sogé (150€)",
+							"bde" => "BDE SANS Sogé (200€)",
+						);
+						echo $tarifs[$compta->tarif_intitule];
+						?></li>
 						<li><b>État du prélèvement</b> : <?php echo $compta->etat_prelevement; ?></li>
 						<li><b>Dernière modification de la fiche</b> : <?php echo $compta->modification; ?></li>
 						<?php
@@ -87,6 +105,7 @@
 						<li><b>SEI</b>
 							<ul style='margin-left: 40px;'>
 								<li><b>BBQ payés :</b> <?php echo ($compta_sei->bbq_paye ? "Oui" : "Non"); ?></li>
+								<li><b>Mode de payement :</b> <?php echo $moyen_payement_options[$compta_sei->mode_payement]; ?></li>
 								<li><b>Prix payé :</b> <?php echo $compta_sei->prix_paye; ?> €</li>
 								<li><b>Dernière modification de la fiche</b> : <?php echo $compta_sei->modification; ?></li>
 							</ul>
@@ -97,9 +116,16 @@
 						?>
 						<li><b>WEI</b>
 							<ul style='margin-left: 40px;'>
-								<li><b>Intitulé du tarif</b> : <?php echo $compta_wei->tarif_intitule; ?></li>
+								<li><b>Intitulé du tarif</b> : <?php
+								$tarifs = array(
+									"" => " ",
+									"wei_sg_non_boursier" => "WEI AVEC Sogé, non boursier (200€)",
+									"wei_sg_boursier" => "WEI AVEC Sogé, boursier (130€)",
+									"wei" => "BDE SANS Sogé (300€)",
+								);
+								echo $tarifs[$compta_wei->tarif_intitule];
+								?></li>
 								<li><b>Prix :</b> <?php echo $compta_wei->prix; ?> €</li>
-								<li><b>Moyen de payement</b> : <?php echo $compta_wei->moyen_payement; ?></li>
 								<li><b>Caution</b> : <?php echo ($compta_wei->caution ? "Oui" : "Non"); ?></li>
 								<li><b>Dernière modification de la fiche</b> : <?php echo $compta_wei->modification; ?></li>
 							</ul>
@@ -121,11 +147,11 @@
 					<input type='button' onclick='toggle("sei")' class='tiny secondary button' value="Voir/Cacher »" style='margin-bottom: 10px'/>
 					<ul id="sei">
 						<li><b>BBQ Samedi</b> : <?php echo ($sei->bbq_sam ? "Oui" : "Non"); ?></li>
-						<li><b>BBQ Dimanche</b> : <?php echo ($sei->bbq_sam ? "Oui" : "Non"); ?></li>
-						<li><b>BBQ Lundi</b> : <?php echo ($sei->bbq_sam ? "Oui" : "Non"); ?></li>
-						<li><b>BBQ Mardi</b> : <?php echo ($sei->bbq_sam ? "Oui" : "Non"); ?></li>
-						<li><b>BBQ Mercredi</b> : <?php echo ($sei->bbq_sam ? "Oui" : "Non"); ?></li>
-						<li><b>BBQ Jeudi</b> : <?php echo ($sei->bbq_sam ? "Oui" : "Non"); ?></li>
+						<li><b>BBQ Dimanche</b> : <?php echo ($sei->bbq_dim ? "Oui" : "Non"); ?></li>
+						<li><b>BBQ Lundi</b> : <?php echo ($sei->bbq_lun ? "Oui" : "Non"); ?></li>
+						<li><b>BBQ Mardi</b> : <?php echo ($sei->bbq_mar ? "Oui" : "Non"); ?></li>
+						<li><b>BBQ Mercredi</b> : <?php echo ($sei->bbq_mer ? "Oui" : "Non"); ?></li>
+						<li><b>BBQ Jeudi</b> : <?php echo ($sei->bbq_jeu ? "Oui" : "Non"); ?></li>
 						<li><b>Dernière modification de la fiche</b> : <?php echo $sei->modification; ?></li>
 					</ul>
 				<?php
@@ -140,7 +166,6 @@
 				?>
 					<input type='button' onclick='toggle("wei")' class='tiny secondary button' value="Voir/Cacher »" style='margin-bottom: 10px' />
 					<ul id="wei">
-						<li><b>Intérêt pour le WEI</b> : <?php echo ($wei->interet ? "Oui" : "Non"); ?></li>
 						<li><b>Participe au WEI</b> : <?php echo ($wei->wei ? "Oui" : "Non"); ?></li>
 						<li><b>Clef du bungalow</b> : <?php echo $wei->clef; ?></li>
 						<li><b>État de la réservation</b> : 
@@ -155,8 +180,16 @@
 								echo "Payement effectué";
 							?>
 						</li>
-						<li><b>Bungalow</b> : <?php echo anchor($wei_bungalow->nom, "/backend/wei/bungalow/voir/".$wei_bungalow->id); ?></li>
-						<li><b>Équipe</b> : <?php echo anchor($wei_equipe->nom, "/backend/wei/bungalow/voir/".$wei_equipe->id); ?></li>
+						<li><b>Bungalow</b> : 
+						<?php
+						if ($wei_bungalow)
+							echo anchor("/backend/wei/bungalow/voir/".$wei_bungalow->id, $wei_bungalow->nom);
+						?></li>
+						<li><b>Équipe</b> : 
+						<?php 
+						if ($wei_equipe)
+							echo anchor("/backend/wei/equipe/voir/".$wei_equipe->id, $wei_equipe->nom);
+						?></li>
 						<li><b>Dernière modification de la fiche</b> : <?php echo $wei->modification; ?></li>
 					</ul>
 				<?php
