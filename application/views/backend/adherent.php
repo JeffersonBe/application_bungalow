@@ -17,7 +17,13 @@ $moyen_payement_options = array(
 				<?php echo anchor("backend/adherent/modifier/".$adherent->id, "Modifier", array("class" => "left button")); ?>
 			</div>
 			<div class="two columns">
-				<?php echo anchor("backend/adherent/supprimer/".$adherent->id, "Supprimer", array("class" => "left alert button")); ?>
+				<?php echo anchor("backend/adherent/supprimer/".$adherent->id, "Supprimer",
+					array(
+						'class' => "alert button",
+						'onclick' => "suppression_adherent()",
+						'target' => '_blank',
+					)
+				); ?>
 			</div><br /><br /><br />
 			<div class="six columns">
 				<h3>Adhérent</h3>
@@ -25,8 +31,24 @@ $moyen_payement_options = array(
 				<ul>
 					<li><b>Nom</b> : <?php echo $adherent->nom; ?></li>
 					<li><b>Prénom</b> : <?php echo $adherent->prenom; ?></li>
-					<li><b>École</b> : <?php echo $adherent->ecole; ?></li>
-					<li><b>Sexe</b> : <?php echo $adherent->sexe; ?></li>
+					<li><b>École</b> : 
+						<?php
+						$ecole = array(
+							"tem" => "TEM",
+							"tsp" => "TSP",
+						);
+						echo $ecole[$adherent->ecole];
+						?>
+					</li>
+					<li><b>Sexe</b> : 
+						<?php
+						$sexe = array(
+							"m" => "Homme",
+							"f" => "Femme",
+						);
+						echo $sexe[$adherent->sexe];
+						?>
+					</li>
 					<div id='plus_adherent'>
 						<li><b>Promotion</b> : <?php echo ($adherent->promo-3)." - ".$adherent->promo ?></li>
 						<li><b>Création de la fiche</b> : <?php echo $adherent->creation; ?></li>

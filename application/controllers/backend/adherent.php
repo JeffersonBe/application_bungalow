@@ -199,7 +199,10 @@ class Adherent extends CI_Controller {
 			$profil_new->adherent_id = $adherent_id;
 			$profil_new->disi = $this->input->post('disi');
 			$profil_new->email = $this->input->post('email');
-			$profil_new->date_naissance = formater_date_bdd($this->input->post('date_naissance'));
+			if ($this->input->post('date_naissance'))
+				$profil_new->date_naissance = formater_date_bdd($this->input->post('date_naissance'));
+			else
+				$profil_new->date_naissance = null;
 			$profil_new->portable = $this->input->post('portable');
 			$profil_new->fixe = $this->input->post('fixe');
 			$profil_new->adresse = $this->input->post('adresse');
@@ -380,7 +383,10 @@ class Adherent extends CI_Controller {
 			$profil_new = clone $profil;
 			$profil_new->disi = $this->input->post('disi');
 			$profil_new->email = $this->input->post('email');
-			$profil_new->date_naissance = formater_date_bdd($this->input->post('date_naissance'));
+			if ($this->input->post('date_naissance'))
+				$profil_new->date_naissance = formater_date_bdd($this->input->post('date_naissance'));
+			else
+				$profil_new->date_naissance = null;
 			$profil_new->portable = $this->input->post('portable');
 			$profil_new->fixe = $this->input->post('fixe');
 			$profil_new->adresse = $this->input->post('adresse');
