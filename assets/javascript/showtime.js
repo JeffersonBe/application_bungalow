@@ -61,6 +61,25 @@ function drawSexes(hommes, femmes) {
 	chart.draw(data, options);
 }
 
+function drawBoursiers(non_boursiers, boursiers) {
+	var data = google.visualization.arrayToDataTable([
+		['Pallier', 'Effectif'],
+		['Non Boursiers', non_boursiers],
+		['Boursiers', boursiers],
+	]);
+
+	var options = {
+		width: 200,
+		height: 200,
+		title: 'Boursiers',
+		is3D: true,
+		legend: {position: 'none'},
+	};
+
+	var chart = new google.visualization.PieChart(document.getElementById('chart_boursiers'));
+	chart.draw(data, options);
+}
+
 function toggle(id)
 {
 	$('#'+id).toggle('slow');

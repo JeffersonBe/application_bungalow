@@ -19,6 +19,7 @@ class Stats extends CI_Controller {
 			"stats_wei" => $this->Wei_model->places_restantes_wei(),
 			"stats_ecoles" => $this->Stats_model->voir_ecoles(),
 			"stats_sexes" => $this->Stats_model->voir_sexes(),
+			"stats_boursiers" => $this->Stats_model->voir_boursiers(),
 		);
 
 		$this->load->view('backend/header', array('titre' => 'Statistiques'));

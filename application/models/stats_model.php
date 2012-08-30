@@ -59,4 +59,26 @@ class Stats_model extends CI_Model {
 
 		return $sexes;
 	}
+
+	function voir_boursiers()
+	/**
+	* Sort les stats des boursiers
+	* @return objects array objets des résultats de la requête sur la vue
+	*/
+	{
+		$palliers = array();
+
+		$query = $this->db->get(
+			'vue_stats_boursiers'
+		);
+
+		foreach($query->result() as $pallier)
+		{
+			$pallier->nb = (int) $pallier->nb;
+			$pallier->pourcentage = (float) $pallier->pourcentage;
+			array_push($palliers, $pallier);
+		}
+
+		return $palliers;
+	}
 }

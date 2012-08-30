@@ -5,6 +5,7 @@
 			<div id='chart_wei' style="display: inline-block;"></div>
 			<div id='chart_ecoles' style="display: inline-block;"></div>
 			<div id='chart_sexes' style="display: inline-block;"></div>
+			<div id='chart_boursiers' style="display: inline-block;"></div>
 		</div><br /><br />
 		<div class="panel">
 			<h4>WEI</h4>
@@ -62,6 +63,26 @@
 				?>
 			</ul>
 		</div>
+		<div class="panel">
+			<h4>Boursiers vs Non Boursiers</h4>
+			<ul class="ten disc columns centered">
+				<?php
+				foreach($stats_boursiers as $pallier)
+				{
+					if ($pallier->pallier == '')
+					{
+						$non_boursiers_chart = $pallier->nb;
+						echo "<li>Non boursiers : ".($pallier->pourcentage * 100)." % (".$pallier->nb.")";
+					}
+					elseif ($pallier->pallier == 'Boursier')
+					{
+						$boursiers_chart = $pallier->nb;
+						echo "<li>Boursiers : ".($pallier->pourcentage * 100)." % (".$pallier->nb.")";
+					}
+				}
+				?>
+			</ul>
+		</div>
 	</div><!-- fin de 10 -->
 </div><!-- fin de main -->
 <!--Load the AJAX API-->
@@ -82,5 +103,6 @@
 	// Set a callback to run when the Google Visualization API is loaded.
 	google.setOnLoadCallback(function(){ drawEcoles(<?php echo $tem_chart; ?>, <?php echo $tsp_chart; ?>) });
 	google.setOnLoadCallback(function(){ drawSexes(<?php echo $hommes_chart; ?>, <?php echo $femmes_chart; ?>) });
+	google.setOnLoadCallback(function(){ drawBoursiers(<?php echo $non_boursiers_chart; ?>, <?php echo $boursiers_chart; ?>) });
 	google.setOnLoadCallback(function(){ drawWei(<?php echo $wei_chart; ?>) });
 </script>
