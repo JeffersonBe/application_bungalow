@@ -901,27 +901,36 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
 	margin: 50px auto;
 }
 
-@media only screen and (max-width: 765px) {
-    #main {
-        padding: 0;
-        margin: 0;
-    }
-}
-
 .line, .tiles {
 	height: 150px;
+	color: #f0eaea;
+	font-size:
 }
 
 .lineup {
     height: 75px;
 }
 
+.menu {
+    line-height: 3;
+}
+
+@media only screen and (max-width: 765px) {
+    #main {
+        padding: 0;
+        margin: 0;
+        }
+
+
+}
+
+
 /*** Panneau ***/
 #panneau32 { background: url(../images/mousse.jpg) center center; }
 
-#panneau33 { background-color: #0085ff; height: 100%: }
+#panneau33 { background-color: #0085ff; height: 100%; padding: 30px 0 0 0; }
 
-#panneau42 { background-color: #ff0822; height: 100%; }
+#panneau42 { background-color: #ff0822; height: 100%; padding: 30px 0 0 0; }
 
 #panneau43 { background: url(../images/saut.jpg) center center; }
 
@@ -931,12 +940,22 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
 
 #panneau52 { background: url(../images/orange.jpg) center center; }
 
-#panneau53 { background: #00b726; height: 100%; }
+#panneau53 { background: #00b726; height: 100%; padding: 30px 0 0 0;}
 
 #panneau54 { background: url(../images/soiree.jpg) center center; }
 
+/*** titres des panneaux ***/
+.title-panneau {
+    font-size: 3em;
+    font-family: 'Oswald', sans-serif;
+}
+
+.sub-title-panneau {
+    font-size: 1.1em;
+    font-family: 'Oswald', sans-serif;
+}
+
 @media only screen and (max-width: 765px) {
-    #panneau33, #panneau42, #panneau53 { height: 90px; }
     #panneau41 {
         background: url(../images/showtime-mobile.png) center center;
     }
