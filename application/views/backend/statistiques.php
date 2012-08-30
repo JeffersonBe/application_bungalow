@@ -10,16 +10,22 @@
 		<div class="panel">
 			<h4>WEI</h4>
 			<ul class="ten disc columns centered">
-				<li><?php
-					$wei_chart = (1 - $stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
-					echo "Places restantes : ";
-					echo ($stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
-					echo " % (".$stats_wei['places_restantes']."/".$stats_wei['places_totales'].")";
+				<li>Places restantes : <?php
+					if ($stats_wei['places_totales'] != 0)
+					{
+						$wei_chart = (1 - $stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
+						echo ($stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
+						echo " % (".$stats_wei['places_restantes']."/".$stats_wei['places_totales'].")";
+					}
+					else
+						$wei_chart = 1;
 				?></li>
-				<li><?php
-					echo "Remplissage : ";
-					echo (1 - $stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
-					echo " % (".($stats_wei['places_totales'] - $stats_wei['places_restantes'])."/".$stats_wei['places_totales'].")";
+				<li>Remplissage : <?php
+					if ($stats_wei['places_totales'] != 0)
+					{
+						echo (1 - $stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
+						echo " % (".($stats_wei['places_totales'] - $stats_wei['places_restantes'])."/".$stats_wei['places_totales'].")";
+					}
 				?></li>
 			</ul>
 		</div>
