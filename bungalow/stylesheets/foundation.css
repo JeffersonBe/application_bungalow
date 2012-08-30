@@ -901,13 +901,21 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
 	margin: 50px auto;
 }
 
-.line, .tiles, .menu {
+@media only screen and (max-width: 765px) {
+    #main {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.line, .tiles {
 	height: 150px;
 }
 
 .lineup {
     height: 75px;
 }
+
 /*** Panneau ***/
 #panneau32 { background: url(../images/mousse.jpg) center center; }
 
@@ -927,6 +935,14 @@ ul.orbit-bullets li.active.has-thumb { background-position: 0 0; border-top: 2px
 
 #panneau54 { background: url(../images/soiree.jpg) center center; }
 
+@media only screen and (max-width: 765px) {
+    #panneau33, #panneau42, #panneau53 { height: 90px; }
+    #panneau41 {
+        background: url(../images/showtime-mobile.png) center center;
+    }
+}
+
+/*** Formulaire ***/
 #inscription {
 	background: url('../images/tileable_wood_texture.png');
 	border-radius: 5px;
