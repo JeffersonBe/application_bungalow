@@ -284,7 +284,7 @@
 				</ul>
 			</div>
 			<div class="panel">
-				<h4>Homme vs Femme</h4>
+				<h4>Hommes vs Femmes</h4>
 				<ul class="ten disc columns centered">
 					<?php
 					foreach($stats_sexes as $sexe)

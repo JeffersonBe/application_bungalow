@@ -32,7 +32,10 @@ function drawEcoles(tem, tsp) {
 
 	var options = {
 		width: 200,
-		height: 200
+		height: 200,
+		title: 'TEM vs TSP',
+		is3D: true,
+		legend: {position: 'none'},
 	};
 
 	var chart = new google.visualization.PieChart(document.getElementById('chart_ecoles'));
@@ -42,13 +45,16 @@ function drawEcoles(tem, tsp) {
 function drawSexes(hommes, femmes) {
 	var data = google.visualization.arrayToDataTable([
 		['Sexe', 'Effectif'],
-		['Femme', femmes],
-		['Homme', hommes],
+		['Femmes', femmes],
+		['Hommes', hommes],
 	]);
 
 	var options = {
 		width: 200,
-		height: 200
+		height: 200,
+		title: 'Hommes vs Femmes',
+		is3D: true,
+		legend: {position: 'none'},
 	};
 
 	var chart = new google.visualization.PieChart(document.getElementById('chart_sexes'));
