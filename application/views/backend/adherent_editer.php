@@ -147,7 +147,7 @@
 						<?php
 						$input = array(
 							"name" => "adresse",
-							"value" => set_value('adresse', (isset($profil->adresse) ? $profil->adresse : '')),
+							"value" => set_value('adresse', (isset($profil->adresse) ? br2nl($profil->adresse) : '')),
 							"id" => "adresse",
 							"rows" => 3,
 						);

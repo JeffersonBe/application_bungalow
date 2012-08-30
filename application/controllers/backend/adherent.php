@@ -499,7 +499,7 @@ class Adherent extends CI_Controller {
 		$this->form_validation->set_rules('date_naissance', 'Date de naissance', 'xss_clean|callback_date_naissance_check');
 		$this->form_validation->set_rules('portable', 'Téléphone portable', 'max_length[15]|xss_clean');
 		$this->form_validation->set_rules('fixe', 'Téléphone fixe', 'max_length[15]|xss_clean');
-		$this->form_validation->set_rules('adresse', 'Adresse', 'xss_clean');
+		$this->form_validation->set_rules('adresse', 'Adresse', 'nl2br|xss_clean');
 		$this->form_validation->set_rules('lieu_naissance', 'Lieu de naissance', 'max_length[100]|xss_clean');
 		$this->form_validation->set_rules('regime', 'Régime', 'xss_clean');
 		$this->form_validation->set_rules('fiche_rentree', 'Fiche de rentrée', 'integer|intval|max_length[3]');

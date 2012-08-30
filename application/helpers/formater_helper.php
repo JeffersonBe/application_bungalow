@@ -22,3 +22,7 @@ function formater_date_ecran($str)
 	$j = substr($str, 8, 2);
 	return $j.'/'.$m.'/'.$a;
 }
+
+function br2nl($string){
+	return preg_replace('/\<br(\s*)?\/?\>/i', "\n", $string);
+} 

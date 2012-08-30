@@ -82,7 +82,7 @@ $moyen_payement_options = array(
 						if ($profil->fixe)
 							echo "<li><b>Téléphone fixe</b> : ".$profil->fixe."</li>";
 						if ($profil->adresse)
-							echo "<li><b>Adresse</b> : ".$profil->adresse."</li>";
+							echo "<li><b>Adresse</b> : <br />".$profil->adresse."</li>";
 						echo "<div id='plus_profil'>";
 						if ($profil->lieu_naissance)
 							echo "<li><b>Lieu de naissance</b> : ".$profil->lieu_naissance."</li>";
