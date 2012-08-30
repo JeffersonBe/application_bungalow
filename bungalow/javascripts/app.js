@@ -1,5 +1,11 @@
 jQuery(document).ready(function ($) {
-        
+
+    $('#resaWei').hide();
+    $('#btnResaWei').click(function() {
+        $('#btnResaWei').hide();
+        $('#resaWei').show();
+    });
+
   /* Use this js doc for all application specific JS */
 
   /* TABS --------------------------------- */

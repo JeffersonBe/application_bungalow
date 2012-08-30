@@ -39,7 +39,7 @@
     <div id="line3" class="row line">
         <div id="panneau31" class="line three columns hide-for-small"></div>
         <div id="panneau32" class="tiles five columns mobile-four"></div>
-        <a href="#" data-reveal-id="presentation" data-animation="fadeAndPop" data-animationspeed="300" data-closeonbackgroundclick="true" data-dismissmodalclass="tiles close-reveal-modal">
+        <a href="#" data-reveal-id="inscription" data-animation="fadeAndPop" data-animationspeed="300" data-closeonbackgroundclick="true" data-dismissmodalclass="tiles close-reveal-modal">
             <div id="panneau33" class="tiles two columns mobile-four">
                 <h3 class="text-center title-panneau">WEI</h3>
                 <p class="text-center sub-title-panneau">Weekend d'intégration</p>
@@ -62,7 +62,7 @@
 
     <div id="line5" class="row line">
         <div id="panneau52" class="tiles five columns hide-for-small"></div>
-        <a href="#" data-reveal-id="tarifs" data-animation="fadeAndPop" data-animationspeed="300" data-closeonbackgroundclick="true" data-dismissmodal class="tiles close-reveal-modal">
+        <a href="#" data-reveal-id="presentation" data-animation="fadeAndPop" data-animationspeed="300" data-closeonbackgroundclick="true" data-dismissmodal class="tiles close-reveal-modal">
           <div id="panneau53" class="tiles two columns mobile-four">
               <h3 class="text-center title-panneau">SEI</h3>
               <p class="text-center sub-title-panneau">Semaine d'intégration</p>
@@ -120,30 +120,23 @@
 </div>
 
 <div id="presentation" data-reveal-id="presentation" class="reveal-modal expand">
-<p>C’est l’évènement incontournable de l’année, expérience inoubliable dans la vie des étudiants du campus de Telecom Ecole de Management et Telecom SudParis. Cette année, ton <span class="">Bureau des Elèves ShowTime</span> t’emmène à Mezos dans les Landes, du Vendredi 7 au lundi 10 Septembre.</p>
-<p>Après une semaine d’intégration bien remplie, ce week-end aura pour but de te faire passer un moment que  tu n’oublieras jamais, prolongeant tes vacances et n’ayant que pour maitres-mots : Rencontres, Plaisir et Détente.</p>
-
-<p>Avant-goût des festivités : départ en train discothèque dans la soirée en direction du Sud ouest de la France, train couchettes privatisé comportant deux wagons spécialement conçus pour faire la fête. Arrivée au camping où tout aura été organisé pour que tu puisses : rencontrer toute ta promotion et les membres des associations parmi les 2ème  et 3ème années, t’éclater par le biais d’une multitude d’activités et  profiter de tes premières soirées en école !</p>
-
-<p>Piscines, lac privé, palmiers, saut à l’élastique, soirée mousse, paint-ball et bien d’autres surprises t’attendent, alors ne loupe surtout pas le week-end  de ta vie !</p>
-
-<p>Attention, les places sont limitées !</p>
-
 <p>Dès ton arrivée, tout sera mis en œuvre pour te faire découvrir l’esprit qui règne sur le campus.</p>
-
 <p>Ta première semaine en école sera une des plus folles !</p>
-
 <p>Cette semaine d’intégration te permettra de rencontrer ta promotion et de découvrir plus amplement tous les clubs et associations de l’école par  différentes activités, barbecues avec les anciens et soirées à thèmes !</p>
-
 <p>Ne t’inquiète pas, les membres du BDE et des autres associations seront là pour t’ouvrir les portes des plus belles années de ta vie d’étudiante.</p>
-
-(lien vers le planning de la semaine d’intégration)
-<p class="text-center"><a href="#" data-reveal-id="inscription" data-animation="fadeAndPop" data-animationspeed="300" data-closeonbackgroundclick="true" data-dismissmodalclass="tiles close-reveal-modal" class="button large radius">Inscrivez-vous au WEI</a>
 </div>
 
 <div id="inscription" data-reveal-id="inscription" class="reveal-modal expand">
 		<div class="eight columns centered">
-			<form>
+            <p>C’est l’évènement incontournable de l’année, expérience inoubliable dans la vie des étudiants du campus de Telecom Ecole de Management et Telecom SudParis. Cette année, ton <span class="">Bureau des Elèves ShowTime</span> t’emmène dans les Landes, du Vendredi 7 au lundi 10 Septembre.</p>
+            <p>Après une semaine d’intégration bien remplie, ce week-end aura pour but de te faire passer un moment que  tu n’oublieras jamais, prolongeant tes vacances et n’ayant que pour maitres-mots : Rencontres, Plaisir et Détente.</p>
+            <p>Avant-goût des festivités : départ en train discothèque dans la soirée en direction du Sud ouest de la France, train couchettes privatisé comportant deux wagons spécialement conçus pour faire la fête. Arrivée au camping où tout aura été organisé pour que tu puisses : rencontrer toute ta promotion et les membres des associations parmi les 2ème  et 3ème années, t’éclater par le biais d’une multitude d’activités et  profiter de tes premières soirées en école !</p>
+            <p>Piscines, lac privé, palmiers, saut à l’élastique, soirée mousse, paint-ball et bien d’autres surprises t’attendent, alors ne loupe surtout pas le week-end  de ta vie !</p>
+            <p>Attention, les places sont limitées !</p>
+            <p class="text-center">
+                <a href="#" class="button large radius" id="btnResaWei">Choissisez-votre bungalow WEI</a>
+                </p>
+			<form id="resaWei">
 				<h3 class="text-center">Formulaire d'inscription</h3>
 				<div class="row">
 					<div class="six columns">
@@ -250,5 +243,6 @@
   <!-- Included JS Files -->
   <script src="javascripts/jquery.min.js"></script>
   <script src="javascripts/foundation.js"></script>
+  <script src="javascripts/app.js"></script>
 </body>
 </html>
