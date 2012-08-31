@@ -1,5 +1,0 @@
-0308        544885       31071BDE IT-SUDPARIS                                   E     0068300037275571                                               30003      
-0608        544885            Pierre-Edouard MONTABRUNSOCIETE GENERALE                4562PAIEMENT COTISATION BDE        30003      
-0608        544885            pilou MONTAGNE          SOCIETE GENERALE                30003545476512144562PAIEMENT COTISATION BDE        30003      
-0808        544885                                                                                    0000000000009124                                          
-
