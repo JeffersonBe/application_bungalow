@@ -4,17 +4,17 @@ function suppression_adherent()
 }
 
 
-function drawWei(occupation_pourc) {
+function drawWei(occupation_pourc, max) {
 	var data = google.visualization.arrayToDataTable([
 		['Label', 'Value'],
 		['WEI', occupation_pourc]
 	]);
-
 	var options = {
 		width: 200, height: 200,
-		redFrom: 90, redTo: 100,
-		yellowFrom:75, yellowTo: 90,
-		minorTicks: 5,
+		redFrom: (9/10)*max, redTo: max,
+		yellowFrom: (7/10)*max, yellowTo: (9/10)*max,
+		minorTicks: 10,
+		max: max,
 		backgroundColor: '#f2f2f2'
 	};
 

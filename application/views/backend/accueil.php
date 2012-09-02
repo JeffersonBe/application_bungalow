@@ -254,11 +254,13 @@
 						if ($stats_wei['places_totales'] != 0)
 						{
 							$wei_chart = (1 - $stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
+							$wei_max_chart = $stats_wei['places_totales'];
 							echo ($stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
 							echo " % (".$stats_wei['places_restantes']."/".$stats_wei['places_totales'].")";
 						}
 						else
-							$wei_chart = 1;
+							$wei_chart = $stats_wei['places_totales'];
+							$wei_max_chart = $stats_wei['places_totales'];
 					?></li>
 					<li>Remplissage : <?php
 					if ($stats_wei['places_totales'] != 0)
@@ -362,7 +364,7 @@
 	// Set a callback to run when the Google Visualization API is loaded.
 	google.setOnLoadCallback(function(){ drawEcoles(<?php echo $tem_chart; ?>, <?php echo $tsp_chart; ?>) });
 	google.setOnLoadCallback(function(){ drawSexes(<?php echo $hommes_chart; ?>, <?php echo $femmes_chart; ?>) });
-	google.setOnLoadCallback(function(){ drawWei(<?php echo $wei_chart; ?>) });
+	google.setOnLoadCallback(function(){ drawWei(<?php echo $wei_chart; ?>, <?php echo $wei_max_chart ?>) });
 
 	$('#plus_stats').hide();
 	$('#plus_chercher').hide();
