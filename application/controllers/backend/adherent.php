@@ -154,7 +154,6 @@ class Adherent extends CI_Controller {
 
 	public function nouveau()
 	{
-		// TODO Créer directement toutes les lignes dans les tables pour ne pas faire foirer les jointures
 		$this->load->model('Adherent_model');
 		$this->load->model('Profil_model');
 		$this->load->model('Compta_model');

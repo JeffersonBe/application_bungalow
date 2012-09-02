@@ -480,8 +480,11 @@
 						<?php
 						$options = array('' => 'Aucun');
 
-						foreach($liste_bungalow as $bungalow)
-							$options[$bungalow->id] = $bungalow->numero." ".$bungalow->nom;
+						if ($liste_bungalow)
+						{
+							foreach($liste_bungalow as $bungalow)
+								$options[$bungalow->id] = $bungalow->numero." ".$bungalow->nom;
+						}
 						?>
 						<div class="three columns"><label for="bungalow" class="inline"><b>Bungalow</b> :</label></div>
 						<div class="three columns"><? echo form_dropdown('bungalow', $options, set_value('bungalow', (isset($wei->bungalow_id) ? $wei->bungalow_id : ''))); ?></div>
@@ -491,8 +494,11 @@
 						<?php
 						$options = array('' => 'Aucune');
 
-						foreach($liste_equipes as $equipe)
-							$options[$equipe->id] = $equipe->nom;
+						if ($liste_equipes)
+						{
+							foreach($liste_equipes as $equipe)
+								$options[$equipe->id] = $equipe->nom;
+						}
 						?>
 						<div class="three columns"><label for="equipe" class="inline"><b>Équipe</b> :</label></div>
 						<div class="three columns"><? echo form_dropdown('equipe', $options, set_value('equipe', (isset($wei->equipe_id) ? $wei->equipe_id : ''))); ?></div>
