@@ -13,7 +13,8 @@
 				<li>Places restantes : <?php
 					if ($stats_wei['places_totales'] != 0)
 					{
-						$wei_chart = (1 - $stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
+						$wei_max_chart = $stats_wei['places_totales'];
+						$wei_chart = $wei_max_chart - $stats_wei['places_restantes'];
 						echo ($stats_wei['places_restantes'] / $stats_wei['places_totales'])*100;
 						echo " % (".$stats_wei['places_restantes']."/".$stats_wei['places_totales'].")";
 					}
