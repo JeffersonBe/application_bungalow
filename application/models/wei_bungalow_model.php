@@ -65,7 +65,7 @@ class Wei_bungalow_model extends CI_Model {
 	*/
 	public function places_prises_bungalow()
 	{
-		$this->db->select('id');
+		$this->db->select('wei_bungalow.id');
 		$this->db->from('wei_bungalow');
 		$this->db->join('wei', 'wei.bungalow_id = wei_bungalow.id');
 		$this->db->where('wei_bungalow.id', $this->id);
