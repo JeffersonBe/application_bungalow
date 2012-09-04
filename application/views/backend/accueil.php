@@ -2,7 +2,6 @@
 <div id="main" class="row">
 	<?php echo form_open('backend/adherent/chercher'); ?>
 	<div class="six columns">
-<!-- 		<h1 class="ten subheader mobile-four columns centered">Rechercher</h1> -->
 		<form class='custom'>
 		<fieldset>
 		

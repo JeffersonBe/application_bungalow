@@ -12,6 +12,8 @@
 class Wei extends CI_Controller {
 	public function index()
 	{
+		$this->load->helper('form');
+
 		$this->load->model('Wei_model');
 		$this->load->model('Wei_equipe_model');
 		$this->load->model('Wei_bungalow_model');

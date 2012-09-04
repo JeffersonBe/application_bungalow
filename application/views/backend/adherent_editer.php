@@ -230,7 +230,6 @@
 						);
 						?>
 						<div class="three columns"><label for="compte_sg"><b>Compte à la Sogé</b> :</label></div>
-						<!-- TODO: test -->
 						<div class="three columns left"><input type="checkbox" name="compte_sg" id="compte_sg" value="1" <?php echo set_checkbox('compte_sg', '1', (isset($compta) && $compta && $compta->compte_sg)); ?> /></div>
 						<div class="six columns"></div>
 					</div>
