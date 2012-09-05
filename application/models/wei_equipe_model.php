@@ -110,12 +110,12 @@ class Wei_equipe_model extends CI_Model {
 	* @param string $ordre_direction optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
 	* @return Adherent_model array tableau des objets des adhérents
 	*/
-	public function lister_membres($limite=30, $offset=0, $ordre_key='id', $ordre_direction='desc')
+	public function lister_membres($limite=30, $offset=0, $ordre_key='wei_equipe.id', $ordre_direction='desc')
 	{
 		$this->db->select('*');
 		$this->db->from('wei_equipe');
-		$this->join('wei', 'wei.equipe_id = wei_equipe.id');
-		$this->join('adherent', 'adherent.id = wei.adherent_id');
+		$this->db->join('wei', 'wei.equipe_id = wei_equipe.id');
+		$this->db->join('adherent', 'adherent.id = wei.adherent_id');
 		$this->db->order_by($ordre_key, $ordre_direction);
 		$this->db->limit($limite, $offset);
 		$query = $this->db->get();
@@ -132,6 +132,20 @@ class Wei_equipe_model extends CI_Model {
 		}
 
 		return $resultat;
+	}
+	
+	/**
+	* Compte les membres d'un bungalow
+	* 
+	* @todo test
+	* @return int nombre de membres du bungalow
+	*/
+	public function compter_membres()
+	{
+		$this->db->select('id');
+		$this->db->from('wei_equipe');
+		$this->db->where('id !=', 1);
+		return $this->db->count_all_results();
 	}
 
 	/**

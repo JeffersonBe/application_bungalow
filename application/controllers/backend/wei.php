@@ -28,4 +28,29 @@ class Wei extends CI_Controller {
 		$this->load->view('backend/wei', $wei_data);
 		$this->load->view('backend/footer');
 	}
+	
+	public function equipe_voir($equipe_id)
+	{
+		$this->load->model('Wei_equipe_model');
+
+		// $this->load->helper('formater');
+
+		$equipe_id = (int) $equipe_id;
+		$equipe = $this->Wei_equipe_model->charger($equipe_id);
+
+		$equipe_data = array(
+			"equipe" => $equipe,
+		);
+		
+		if ($equipe)
+		$equipe_data["membres"] = $equipe->lister_membres(0);
+
+		if ($equipe)
+			$this->load->view('backend/header', array('titre' => 'Équipe '.$equipe->nom));
+		else
+			$this->load->view('backend/header', array('titre' => 'Équipe inconnue'));
+		$this->load->view('backend/menu');
+		$this->load->view('backend/wei_equipe', $equipe_data);
+		$this->load->view('backend/footer');
+	}
 }

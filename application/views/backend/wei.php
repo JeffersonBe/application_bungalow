@@ -70,11 +70,11 @@
 	</fieldset>
 	<div class='twelve columns'>
 		<div class="three columns"></div>
-		<?php echo anchor("backend/equipe/nouveau", "Nouvelle équipe", array('class'=> "three large button columns")); ?>
-		<?php echo anchor("backend/bungalow/nouveau", "Nouveau bungalow", array('class'=> "three large button columns")); ?>
+		<?php echo anchor("backend/equipe/nouveau", "Nouvelle équipe", array('class'=> "three button columns")); ?>
+		<?php echo anchor("backend/bungalow/nouveau", "Nouveau bungalow", array('class'=> "three button columns")); ?>
 		<div class="three columns"></div>
 	</div>
-	<div class='twelve columns'>
+	<div class='twelve columns' style='margin-bottom: 20px;'>
 		<h3>Equipes</h3>
 		<table class="ten columns centered">
 			<?php
@@ -84,19 +84,24 @@
 				{
 				?>
 					<tr>
-						<td class="six columns"><?php echo $equipe->nom." (".count($equipe->lister_membres(0)).")"; ?></td>
+						<td class="six columns"><?php echo $equipe->nom." (".$equipe->compter_membres().")"; ?></td>
 						<td class="two columns">
-							<?php echo anchor("backend/equipe/voir/".$equipe->id, "Consulter", array('class' => "tiny regular button")); ?>
+							<?php echo anchor("backend/equipe/voir/".$equipe->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
 						</td>
 						<td class="two columns">
 							<?php echo anchor("backend/equipe/modifier/".$equipe->id, "Modifier", array('class' => "tiny secondary button")); ?>
 						</td>
 						<td class="two columns">
-							<?php echo anchor("backend/equipe/supprimer/".$equipe->id, "Supprimer",
-								array(
-									'class' => "tiny alert button",
-								)
-							); ?>
+							<?php
+							if ($equipe->id != 1)
+							{
+								echo anchor("backend/equipe/supprimer/".$equipe->id, "Supprimer",
+									array(
+										'class' => "tiny alert button",
+									)
+								);
+							}
+							?>
 						</td>
 					</tr>
 				<?php
@@ -105,42 +110,103 @@
 			?>
 		</table>
 	</div>
-	<div class='twelve columns'>
-		<h3>Bungalows</h3>
-		<table class="ten columns centered">
-			<?php
-			foreach($bungalows as $bungalow)
-			{
-			?>
-				<tr>
-					<td class="one columns"><?php echo $bungalow->numero; ?></td>
-					<td class="three columns">
-							<?php
-								$places_prises = $bungalow->places_prises_bungalow();
-								if ($places_prises == $bungalow->capacite)
-									echo "<b>(".$places_prises."/".$bungalow->capacite.") ".$bungalow->nom."</b>";
-								else
-									echo "(".$places_prises."/".$bungalow->capacite.") ".$bungalow->nom;
-							?>
-					</td>
-					<td class="two columns"><?php echo $bungalow->equipe_id ? $bungalow->_equipe->nom : '<span class="alert label">Sans équipe</span>'; ?></td>
-					<td class="two columns">
-						<?php echo anchor("backend/equipe/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button")); ?>
-					</td>
-					<td class="two columns">
-						<?php echo anchor("backend/equipe/modifier/".$bungalow->id, "Modifier", array('class' => "tiny secondary button")); ?>
-					</td>
-					<td class="two columns">
-						<?php echo anchor("backend/equipe/supprimer/".$bungalow->id, "Supprimer",
-							array(
-								'class' => "tiny alert button",
-							)
-						); ?>
-					</td>
-				</tr>
-			<?php
-			}
-			?>
-		</table>
-	</div>
+	
+	<dl class="tabs">
+		<dd class="active"><a href="#1A">Bungalows 1A</a></dd>
+		<dd><a href="#staff">Bungalows Staff</a></dd>
+	</dl>
+
+	<ul class="tabs-content">
+		<li class="active" id="1ATab">
+
+			<div class='twelve columns'>
+				<table class="ten columns centered" style='margin-top: 10px;'>
+					<?php
+					foreach($bungalows as $bungalow)
+					{
+						if ($bungalow->equipe_id != 1)
+						{
+					?>
+							<tr>
+								<td class="one columns"><?php echo $bungalow->numero; ?></td>
+								<td class="three columns">
+										<?php
+											$places_prises = $bungalow->places_prises_bungalow();
+											if ($places_prises == $bungalow->capacite)
+												echo "<b>(".$places_prises."/".$bungalow->capacite.") ".$bungalow->nom."</b>";
+											else
+												echo "(".$places_prises."/".$bungalow->capacite.") ".$bungalow->nom;
+										?>
+								</td>
+								<td class="two columns">
+									<?php
+										echo $bungalow->equipe_id ? $bungalow->_equipe->nom : '<span class="alert label">Sans équipe</span>'; ?></td>
+								<td class="two columns">
+									<?php echo anchor("backend/bungalow/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
+								</td>
+								<td class="two columns">
+									<?php echo anchor("backend/bungalow/modifier/".$bungalow->id, "Modifier", array('class' => "tiny secondary button")); ?>
+								</td>
+								<td class="two columns">
+									<?php echo anchor("backend/bungalow/supprimer/".$bungalow->id, "Supprimer",
+										array(
+											'class' => "tiny alert button",
+										)
+									); ?>
+								</td>
+							</tr>
+					<?php
+						}
+					}
+					?>
+				</table>
+			</div>
+
+		</li>
+		<li id="staffTab">
+	
+			<div class='twelve columns'>
+				<table class="ten columns centered" style='margin-top: 10px;'>
+					<?php
+					foreach($bungalows as $bungalow)
+					{
+						if ($bungalow->equipe_id == 1)
+						{
+					?>
+							<tr>
+								<td class="one columns"><?php echo $bungalow->numero; ?></td>
+								<td class="three columns">
+										<?php
+											$places_prises = $bungalow->places_prises_bungalow();
+											if ($places_prises == $bungalow->capacite)
+												echo "<b>(".$places_prises."/".$bungalow->capacite.") ".$bungalow->nom."</b>";
+											else
+												echo "(".$places_prises."/".$bungalow->capacite.") ".$bungalow->nom;
+										?>
+								</td>
+								<td class="two columns">
+									<?php
+										echo $bungalow->equipe_id ? $bungalow->_equipe->nom : '<span class="alert label">Sans équipe</span>'; ?></td>
+								<td class="two columns">
+									<?php echo anchor("backend/bungalow/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
+								</td>
+								<td class="two columns">
+									<?php echo anchor("backend/bungalow/modifier/".$bungalow->id, "Modifier", array('class' => "tiny secondary button")); ?>
+								</td>
+								<td class="two columns">
+									<?php echo anchor("backend/bungalow/supprimer/".$bungalow->id, "Supprimer",
+										array(
+											'class' => "tiny alert button",
+										)
+									); ?>
+								</td>
+							</tr>
+					<?php
+						}
+					}
+					?>
+				</table>
+			</div>
+		</li>
+	</ul>
 </div>
