@@ -148,7 +148,6 @@ $moyen_payement_options = array(
 								echo $tarifs[$compta_wei->tarif_intitule];
 								?></li>
 								<li><b>Prix :</b> <?php echo $compta_wei->prix; ?> €</li>
-								<li><b>Caution</b> : <?php echo ($compta_wei->caution ? "Oui" : "Non"); ?></li>
 								<li><b>Dernière modification de la fiche</b> : <?php echo $compta_wei->modification; ?></li>
 							</ul>
 						</li>

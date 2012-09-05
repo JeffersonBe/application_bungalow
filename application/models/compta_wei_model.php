@@ -40,11 +40,6 @@ class Compta_wei_model extends CI_Model {
 	*/
 	public $prix;
 	/**
-	* A-t-on une caution pour cet adhérent pour le WEI ?
-	* @var bool $caution
-	*/
-	public $caution;
-	/**
     * date de la dernière modification de la comptabilité WEI de l'adhérent
 	* @note exemple '2012-07-15 00:00:00'
 	* @note Généré et mis à jour automatiquement par mysql
@@ -69,7 +64,6 @@ class Compta_wei_model extends CI_Model {
 			'adherent_id' => $this->adherent_id,
 			'tarif_intitule' => $this->tarif_intitule,
 			'prix' => $this->prix,
-			'caution' => (int) $this->caution,
 		);
 
 		$this->db->insert('compta_wei', $data);
@@ -85,7 +79,6 @@ class Compta_wei_model extends CI_Model {
 		$data = array(
 			'tarif_intitule' => $this->tarif_intitule,
 			'prix' => $this->prix,
-			'caution' => (int) $this->caution,
 		);
 
 		$this->db->where('id', $this->id);
@@ -127,11 +120,10 @@ class Compta_wei_model extends CI_Model {
 		}
 		
 		$row = $query->row();
-		$this->id = (int) $row->id;
+		$this->id = intval($row->id);
 		$this->adherent_id = $row->adherent_id;
 		$this->_adherent = $this->Adherent_model->charger($this->adherent_id);
 		$this->tarif_intitule = $row->tarif_intitule;
-		$this->caution = (bool) $row->caution;
 		$this->prix = $row->prix;
 		$this->modification = $row->modification;
 		return clone $this;

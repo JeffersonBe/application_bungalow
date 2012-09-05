@@ -1,8 +1,3 @@
-<!-- TODO Lister personnes qui n'ont pas pas donné de caution, état de réservation  -->
-<!-- TODO Chercher clef, lister tous les participants -->
-<!-- TODO Page Bungalows -->
-<!-- TODO Gestion équipes -->
-<!-- TODO Envoi du mail avec mdp aléatoire personnel : une personne ou toutes -->
 <div id="main" class="row">
 	<?php echo form_open('backend/adherent/chercher'); ?>
 	<fieldset>
@@ -36,18 +31,6 @@
 			?>
 			<div class="seven columns"><label for="uniquement_sans_bungalow"><b>Uniquement sans bungalow</b> :</label></div>
 			<div class="one column left"><input type="checkbox" name="uniquement_sans_bungalow" id="uniquement_sans_bungalow" value="1" <?php echo set_checkbox('uniquement_sans_bungalow', '1'); ?> /></div>
-			<div class="four columns"></div>
-		</div>
-		<div class="six columns">
-			<?php
-			$input = array(
-				"name" => "uniquement_sans_caution",
-				"value" => set_value('uniquement_sans_caution', '1'),
-				"id" => "uniquement_sans_caution",
-			);
-			?>
-			<div class="seven columns"><label for="uniquement_sans_caution"><b>Uniquement sans caution</b> :</label></div>
-			<div class="one column left"><input type="checkbox" name="uniquement_sans_caution" id="uniquement_sans_caution" value="1" <?php echo set_checkbox('uniquement_sans_caution', '1'); ?> /></div>
 			<div class="four columns"></div>
 		</div>
 		<div class='twelve columns'>

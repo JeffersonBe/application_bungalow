@@ -246,7 +246,6 @@ class Adherent extends CI_Controller {
 			if ($this->input->post('intitule_tarif_wei') == 'wei')
 				$compta_wei_new->prix = 300.;
 			$compta_wei_new->moyen_payement = $this->input->post('moyen_payement_wei');
-			$compta_wei_new->caution = $this->input->post('caution_wei');
 			$compta_wei_new->enregistrer();
 
 			$sei_new = new $this->Sei_model();
@@ -433,7 +432,6 @@ class Adherent extends CI_Controller {
 			if ($this->input->post('intitule_tarif_wei') == 'wei')
 				$compta_wei_new->prix = 300.;
 			$compta_wei_new->moyen_payement = $this->input->post('moyen_payement_wei');
-			$compta_wei_new->caution = $this->input->post('caution_wei');
 			if ($compta_wei_new != $compta_wei);
 				$compta_wei_new->mettre_a_jour();
 
@@ -513,7 +511,6 @@ class Adherent extends CI_Controller {
 		$this->form_validation->set_rules('moyen_payement_sei', 'Moyen de payement des BBQ', 'xss_clean|callback_moyen_payement_sei_check');
 		$this->form_validation->set_rules('prix_paye_sei', 'Prix payé pour les BBQ', 'numeric|float');
 		$this->form_validation->set_rules('intitule_tarif_wei', 'Intitulé du tarif (WEI)', 'xss_clean|callback_intitule_tarif_wei_check');
-		$this->form_validation->set_rules('caution_wei', 'Caution prise', 'integer|intval');
 		$this->form_validation->set_rules('moyen_payement_wei', 'Moyen de payement du WEI', 'xss_clean|callback_moyen_payement_wei_check');
 		$this->form_validation->set_rules('bbq_sam', 'BBQ Samedi', 'integer|intval');
 		$this->form_validation->set_rules('bbq_dim', 'BBQ Dimanche', 'integer|intval');

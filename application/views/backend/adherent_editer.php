@@ -334,19 +334,6 @@
 						<div class="three columns"><? echo form_dropdown('intitule_tarif_wei', $options, set_value('intitule_tarif_wei', (isset($compta_wei->tarif_intitule) ? $compta_wei->tarif_intitule : '')), "id='intitule_tarif_wei'"); ?></div>
 						<div class="six columns"></div>
 					</div>
-					<div class="row">
-						<?php
-						$input = array(
-							"name" => "caution_wei",
-							"value" => set_value('caution_wei', (isset($compta_wei->caution) ? $compta_wei->caution : '1')),
-							"id" => "caution_wei",
-						);
-						?>
-						<div class="three columns"><label for="caution_wei"><b>Caution prise</b> :</label></div>
-						<!-- TODO: test -->
-						<div class="three columns left"><input type="checkbox" name="caution_wei" id="caution_wei" value="1" <?php echo set_checkbox('caution_wei', '1', (isset($compta_wei) && $compta_wei && $compta_wei->caution)); ?> /></div>
-						<div class="six columns"></div>
-					</div>
 				</div>
 			</div>
 			<div  class="twelve columns">
