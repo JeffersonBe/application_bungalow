@@ -25,6 +25,9 @@ class Migration_Add_wei_equipe_table extends CI_Migration {
 			`modification` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 			PRIMARY KEY (`id`)
 			) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+			
+			
+			ALTER TABLE `wei_equipe` ADD `hexa` VARCHAR( 10 ) NULL DEFAULT NULL AFTER `nom` ;
 		");
 	}
 

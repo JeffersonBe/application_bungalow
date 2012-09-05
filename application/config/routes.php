@@ -44,10 +44,10 @@ $route['404_override'] = '';
 $route['backend'] = "backend/accueil";
 $route['backend/liste'] = "backend/adherent";
 
-$route['backend/equipe/nouveau'] = 'backend/wei/equipe_nouveau';
-$route['backend/equipe/voir/(:num)'] = 'backend/wei/equipe_voir/$1';
-$route['backend/bungalow/modifier/(:num)'] = 'backend/wei/equipe_modifier/$1';
-$route['backend/equipe/supprimer/(:num)'] = 'backend/wei/equipe_supprimer/$1';
+$route['backend/wei/equipe/nouveau'] = 'backend/wei/equipe_nouveau';
+$route['backend/wei/equipe/voir/(:num)'] = 'backend/wei/equipe_voir/$1';
+$route['backend/wei/equipe/modifier/(:num)'] = 'backend/wei/equipe_modifier/$1';
+$route['backend/wei/equipe/supprimer/(:num)'] = 'backend/wei/equipe_supprimer/$1';
 
 $route['backend/bungalow/nouveau'] = 'backend/wei/bungalow_nouveau';
 $route['backend/bungalow/voir/(:num)'] = 'backend/wei/bungalow_voir/$1';

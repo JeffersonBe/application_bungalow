@@ -29,6 +29,10 @@ class Wei_equipe_model extends CI_Model {
     * @var string $modification
     */
 	public $modification;
+	/**
+	 * Code hexadécimal de la couleur associée
+	 */
+	public $hexa;
 
 	function __construct()
 	{
@@ -45,6 +49,7 @@ class Wei_equipe_model extends CI_Model {
 	{
 		$data = array(
 			'nom' => $this->nom, 
+			'hexa' => $this->hexa,
 		);
 
 		$this->db->insert('wei_equipe', $data);
@@ -58,7 +63,8 @@ class Wei_equipe_model extends CI_Model {
 	public function mettre_a_jour()
 	{
 		$data = array(
-			'nom' => $this->nom, 
+			'nom' => $this->nom,
+			'hexa' => $this->hexa,
 		);
 
 		$this->db->where('id', $this->id);
@@ -116,8 +122,10 @@ class Wei_equipe_model extends CI_Model {
 		$this->db->from('wei_equipe');
 		$this->db->join('wei', 'wei.equipe_id = wei_equipe.id');
 		$this->db->join('adherent', 'adherent.id = wei.adherent_id');
+		$this->db->where('wei_equipe.id', $this->id);
 		$this->db->order_by($ordre_key, $ordre_direction);
-		$this->db->limit($limite, $offset);
+		if ($limite)
+			$this->db->limit($limite, $offset);
 		$query = $this->db->get();
 		
 		if ($query->num_rows() == 0)
@@ -143,9 +151,14 @@ class Wei_equipe_model extends CI_Model {
 	public function compter_membres()
 	{
 		$this->db->select('id');
-		$this->db->from('wei_equipe');
-		$this->db->where('id !=', 1);
-		return $this->db->count_all_results();
+		$this->db->from('wei');
+		$this->db->where(
+			array(
+				'wei.equipe_id' => $this->id
+			)
+		);
+		$query = $this->db->get();
+		return $query->num_rows();
 	}
 
 	/**
@@ -214,6 +227,7 @@ class Wei_equipe_model extends CI_Model {
 		$row = $query->row();
 		$this->id = (int) $row->id;
 		$this->nom = $row->nom;
+		$this->hexa = $row->hexa;
 		$this->modification = $row->modification;
 
 		return clone $this;

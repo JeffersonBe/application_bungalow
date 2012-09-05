@@ -1,5 +1,5 @@
 <div id="main" class="row">
-	<?php echo form_open('backend/adherent/chercher'); ?>
+	<?php echo form_open('backend/wei/chercher'); ?>
 	<fieldset>
 	
 	<legend>Rechercher participants</legend>
@@ -53,8 +53,8 @@
 	</fieldset>
 	<div class='twelve columns'>
 		<div class="three columns"></div>
-		<?php echo anchor("backend/equipe/nouveau", "Nouvelle équipe", array('class'=> "three button columns")); ?>
-		<?php echo anchor("backend/bungalow/nouveau", "Nouveau bungalow", array('class'=> "three button columns")); ?>
+		<?php echo anchor("backend/wei/equipe/nouveau", "Nouvelle équipe", array('class'=> "three button columns")); ?>
+		<?php echo anchor("backend/wei/bungalow/nouveau", "Nouveau bungalow", array('class'=> "three button columns")); ?>
 		<div class="three columns"></div>
 	</div>
 	<div class='twelve columns' style='margin-bottom: 20px;'>
@@ -67,18 +67,23 @@
 				{
 				?>
 					<tr>
-						<td class="six columns"><?php echo $equipe->nom." (".$equipe->compter_membres().")"; ?></td>
+						<?php
+						if (!$equipe->hexa)
+							echo '<td class="six columns">'.$equipe->nom.' ('.$equipe->compter_membres().')</td>';
+						else
+							echo '<td class="six columns" style="color: #'.$equipe->hexa.';">'.$equipe->nom.' ('.$equipe->compter_membres().')</td>';
+						?>
 						<td class="two columns">
-							<?php echo anchor("backend/equipe/voir/".$equipe->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
+							<?php echo anchor("backend/wei/equipe/voir/".$equipe->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
 						</td>
 						<td class="two columns">
-							<?php echo anchor("backend/equipe/modifier/".$equipe->id, "Modifier", array('class' => "tiny secondary button")); ?>
+							<?php echo anchor("backend/wei/equipe/modifier/".$equipe->id, "Modifier", array('class' => "tiny secondary button")); ?>
 						</td>
 						<td class="two columns">
 							<?php
 							if ($equipe->id != 1)
 							{
-								echo anchor("backend/equipe/supprimer/".$equipe->id, "Supprimer",
+								echo anchor("backend/wei/equipe/supprimer/".$equipe->id, "Supprimer",
 									array(
 										'class' => "tiny alert button",
 									)
@@ -125,13 +130,13 @@
 									<?php
 										echo $bungalow->equipe_id ? $bungalow->_equipe->nom : '<span class="alert label">Sans équipe</span>'; ?></td>
 								<td class="two columns">
-									<?php echo anchor("backend/bungalow/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
+									<?php echo anchor("backend/wei/bungalow/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
 								</td>
 								<td class="two columns">
-									<?php echo anchor("backend/bungalow/modifier/".$bungalow->id, "Modifier", array('class' => "tiny secondary button")); ?>
+									<?php echo anchor("backend/wei/bungalow/modifier/".$bungalow->id, "Modifier", array('class' => "tiny secondary button")); ?>
 								</td>
 								<td class="two columns">
-									<?php echo anchor("backend/bungalow/supprimer/".$bungalow->id, "Supprimer",
+									<?php echo anchor("backend/wei/bungalow/supprimer/".$bungalow->id, "Supprimer",
 										array(
 											'class' => "tiny alert button",
 										)
@@ -171,13 +176,13 @@
 									<?php
 										echo $bungalow->equipe_id ? $bungalow->_equipe->nom : '<span class="alert label">Sans équipe</span>'; ?></td>
 								<td class="two columns">
-									<?php echo anchor("backend/bungalow/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
+									<?php echo anchor("backend/wei/bungalow/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
 								</td>
 								<td class="two columns">
-									<?php echo anchor("backend/bungalow/modifier/".$bungalow->id, "Modifier", array('class' => "tiny secondary button")); ?>
+									<?php echo anchor("backend/wei/bungalow/modifier/".$bungalow->id, "Modifier", array('class' => "tiny secondary button")); ?>
 								</td>
 								<td class="two columns">
-									<?php echo anchor("backend/bungalow/supprimer/".$bungalow->id, "Supprimer",
+									<?php echo anchor("backend/wei/bungalow/supprimer/".$bungalow->id, "Supprimer",
 										array(
 											'class' => "tiny alert button",
 										)

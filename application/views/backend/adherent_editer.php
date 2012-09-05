@@ -1,15 +1,4 @@
-<!-- DISI => Photo de profil et autocomplétion -->
-<!-- Essayer avec nom -->
 <?php echo js('showtime'); ?>
-
-
-<?php
-// Le LDAP n'a pas l'air de fonctionner
-// $ldap_c = ldap_connect('annuaire.it-sudparis.eu', 636);
-// var_dump($ldap_c);
-// $ldap_b = ldap_bind($ldap_c, 'uid=,ou=people,o=it-sudparis,c=eu', '');
-// var_dump($ldap_b);
-?>
 
 <div id="main" class="row">
 	<?php
