@@ -144,7 +144,7 @@ class Wei_model extends CI_Model {
 			'etat_reservation' => $this->etat_reservation,
 			'bungalow_id' => $bungalow,
 			'equipe_id' => $equipe,
-			'mdp' => $mdp,
+			'mdp' => $this->mdp,
 		);
 
 		$this->db->insert('wei', $data);
@@ -202,7 +202,7 @@ class Wei_model extends CI_Model {
 			);
 		}
 		
-		if ($query->num_rows() != 1)
+		if (!$query || $query->num_rows() != 1)
 		{
 			return FALSE;
 		}
@@ -216,9 +216,11 @@ class Wei_model extends CI_Model {
 		$this->clef = $row->clef;
 		$this->etat_reservation = $row->etat_reservation;
 		$this->bungalow_id = $row->bungalow_id;
-		$this->_bungalow = $this->Wei_bungalow_model->charger($this->bungalow_id);
+		if ($this->bungalow_id)
+			$this->_bungalow = $this->Wei_bungalow_model->charger($this->bungalow_id);
 		$this->equipe_id = $row->equipe_id;
-		$this->_equipe = $this->Wei_equipe_model->charger($this->equipe_id);
+		if ($this->equipe_id)
+			$this->_equipe = $this->Wei_equipe_model->charger($this->equipe_id);
 		$this->mdp = $row->mdp;
 		$this->modification = $row->modification;
 		return clone $this;
@@ -271,5 +273,16 @@ class Wei_model extends CI_Model {
 		}
 
 		return $resultat;
+	}
+	
+	public function nouveau_pass()
+	{
+	    $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+	    $pass = array(); //remember to declare $pass as an array
+	    for ($i = 0; $i < 15; $i++) {
+	        $n = rand(0, strlen($alphabet)-1); //use strlen instead of count
+	        $pass[$i] = $alphabet[$n];
+	    }
+	    return implode($pass); //turn the array into a string
 	}
 }

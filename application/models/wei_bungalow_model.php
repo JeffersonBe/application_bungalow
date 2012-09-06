@@ -225,7 +225,7 @@ class Wei_bungalow_model extends CI_Model {
 	* @return int array tableau des id des bungalow
 	*         (permet de faire des inclusions, unions, exclusions, ...)
 	*/
-	public function chercher($contraintes, $limite=0, $offset=0)
+	public function chercher($contraintes, $limite=0, $offset=0, $where = FALSE)
 	{
 		$this->db->select('id');
 
@@ -237,6 +237,9 @@ class Wei_bungalow_model extends CI_Model {
 				$this->db->like($colonne, $recherche);
 			}
 		}
+		
+		if ($where)
+			$this->db->where($where);
 
 		if ($limite)
 			$this->db->limit($limite, $offset);

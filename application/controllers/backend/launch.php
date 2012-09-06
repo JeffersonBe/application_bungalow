@@ -1,0 +1,56 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+* Lancement des invitation mails
+*
+* @author Anthony VEREZ (netantho@minet.net)
+*         président de MiNET 2012-2013
+* @see http://www.anthony-verez.fr
+* @since 09/2012
+*/
+
+class Launch extends CI_Controller {
+	public function index()
+	{
+		$staff = 1;
+		
+		$this->load->model('Adherent_model');
+		$this->load->model('Profil_model');
+		$this->load->model('Wei_model');
+		$this->load->model('Wei_bungalow_model');
+		$this->load->model('Wei_equipe_model');
+		
+		if ($staff)
+			$promo = '2010';
+		else
+			$promo = '2010';
+		
+		$liste = $this->Wei_model->chercher(array(), array('wei' => 1), 0);
+		foreach($liste as $adherent_id)
+		{
+			$adherent = $this->Adherent_model->charger($adherent_id);
+			$profil = $this->Profil_model->charger(False, $adherent_id);
+			$wei = $this->Wei_model->charger(False, $adherent_id);
+			if ($adherent->promo == $promo)
+			{
+				// Générer les mdp
+				$wei->mdp = $wei->nouveau_pass();
+				if ($profil->email)
+				{
+					// Envoyer un mail
+					$this->load->library('email');
+					$this->email->from('association.bde@it-sudparis.eu', 'BDE Showtime');
+					$this->email->to($profil->email);
+					$this->email->subject('Réservation des bungalows WEI');
+					$this->email->message("L'application bungalow est ouverte !\nRDV sur http://showtime2012.fr/rentree/bungalows/accueil\nUtilisez cette adresse e-mail est le mot de passe ".$wei->mdp); 
+					$this->email->send();
+					echo $this->email->print_debugger();
+					echo $adherent->prenom." ".$adherent->nom." Réussi";
+				}
+				else {
+					echo $adherent->prenom." ".$adherent->nom." <b>n'a pas d'adresse e-mail !</b>";
+				}
+			}
+		}
+	}
+}

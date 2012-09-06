@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'bde_rentree';
-$db['default']['password'] = 'bde_rentree';
-$db['default']['database'] = 'bde_rentree';
+$db['default']['username'] = 'toto';
+$db['default']['password'] = 'toto';
+$db['default']['database'] = 'toto';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
