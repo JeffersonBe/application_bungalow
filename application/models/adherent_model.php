@@ -223,6 +223,9 @@ class Adherent_model extends CI_Model {
 	*/
 	public function supprimer()
 	{
+		$this->db->where('adherent_id', $this->id);
+		$this->db->delete('wei');
+		
 		$this->db->where('id', $this->id);
 		$this->db->delete('adherent');
 	}
