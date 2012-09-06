@@ -89,7 +89,7 @@ $couleurs = array(
 							echo '<div class="panneauSelection gris">';
 						?>
 						<?php
-						if (!$wei->bungalow_id && count(intval($bungalow->lister_membres(0))) < $bungalow->capacite)
+						if (!$wei->bungalow_id && (!$bungalow->lister_membres(0) ||count($bungalow->lister_membres(0)) < $bungalow->capacite))
 							echo '<p class="text-center"><input type="radio" name="bungalows" value="'.$bungalow->id.'"/></p>';
 						?>
 						</div>

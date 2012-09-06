@@ -45,7 +45,7 @@ class Accueil extends CI_Controller {
 			}
 
 			$view_data['bungalows'] = $bungalows;
-			$view_data['wei'] = $this->Wei_model->charger(False, intval($this->session->userdata('id')));
+			$view_data['wei'] = $this->Wei_model->charger(False, intval($adherent->id));
 				
 			$this->session->set_userdata($newdata);
 			
