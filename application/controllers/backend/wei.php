@@ -293,7 +293,10 @@ class Wei extends CI_Controller {
 			$bungalow->numero = $this->input->post('numero');
 			$bungalow->nom = $this->input->post('nom');
 			$bungalow->capacite = $this->input->post('capacite');
-			$bungalow->equipe_id = $this->input->post('equipe');
+			if ($this->input->post('equipe'))
+				$bungalow->equipe_id = $this->input->post('equipe');
+			else
+				$bungalow->equipe_id = null;
 			$bungalow->mettre_a_jour();
 
 			redirect("backend/wei/bungalow/voir/".$bungalow_id);
@@ -325,7 +328,10 @@ class Wei extends CI_Controller {
 			$bungalow->numero = $this->input->post('numero');
 			$bungalow->nom = $this->input->post('nom');
 			$bungalow->capacite = $this->input->post('capacite');
-			$bungalow->equipe_id = $this->input->post('equipe');
+			if ($this->input->post('equipe'))
+				$bungalow->equipe_id = $this->input->post('equipe');
+			else
+				$bungalow->equipe_id = 0;
 			$bungalow_id = $bungalow->enregistrer();
 
 			redirect("backend/wei/bungalow/voir/".$bungalow_id);
