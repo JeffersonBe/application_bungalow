@@ -222,24 +222,31 @@ class Wei_model extends CI_Model {
 	/**
 	* Cherche des séjours wei selon des contraintes
 	*
-	* @param array $contraintes tableau associatif des contraintes $colonne => $recherche
+	* @param array $contraintes like tableau associatif des contraintes $colonne => $recherche
+	* @param array $contraintes where tableau associatif des contraintes $colonne => $recherche
 	* @param int $limite optionnel nombre limite de de séjours wei
 	* @param int $offset optionnel offset (décalage)
 	* @return int array tableau des id des adhérents
 	*         (permet de faire des inclusions, unions, exclusions, ...)
 	*/
-	public function chercher($contraintes, $limite=0, $offset=0)
+	public function chercher($contraintes_like, $where, $limite=0, $offset=0)
 	{
-		$this->db->select('id');
+		$this->db->select('id, adherent_id');
 
-		foreach($contraintes as $colonne => $recherche)
+		if ($contraintes_like)
 		{
-			if ($recherche)
+			foreach($contraintes_like as $colonne => $recherche)
 			{
-				// %recherche%
-				$this->db->like($colonne, $recherche);
+				if ($recherche)
+				{
+					// %recherche%
+					$this->db->like($colonne, $recherche);
+				}
 			}
 		}
+
+		if ($where)
+			$this->db->where($where);
 
 		if ($limite)
 			$this->db->limit($limite, $offset);

@@ -20,8 +20,12 @@
 			{
 			?>
 				<tr>
+					<?php
+					if (isset($adherent->bungalow))
+						echo "<td class='one column'>".$adherent->bungalow->numero."</td>";
+					?>
 					<td class="three columns"><?php echo $adherent->nom; ?></td>
-					<td class="three columns"><?php echo $adherent->prenom; ?></td>
+					<td class="two columns"><?php echo $adherent->prenom; ?></td>
 					<td class="two columns">
 						<?php echo anchor("backend/adherent/voir/".$adherent->id, "Consulter", array('class' => "tiny regular button")); ?>
 					</td>

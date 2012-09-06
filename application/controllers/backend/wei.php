@@ -29,6 +29,81 @@ class Wei extends CI_Controller {
 		$this->load->view('backend/footer');
 	}
 	
+	public function chercher()
+	{
+		$this->load->model('Adherent_model');
+		$this->load->model('Wei_model');
+		$this->load->model('Wei_equipe_model');
+		$this->load->model('Wei_bungalow_model');
+		
+		$this->load->library('form_validation');
+		$this->load->helper('form');
+
+		$this->form_validation->set_rules('numero', 'Numéro', 'xss_clean');
+		$this->form_validation->set_rules('uniquement_sans_bungalow', 'Uniquement sans bungalow', 'intval');
+
+		$this->form_validation->set_error_delimiters('<div class="alert-box alert">', '<a href="" class="close">&times;</a></div>');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$wei_data = array(
+				"bungalows" => $this->Wei_bungalow_model->lister(0, 0, 'numero'),
+				"equipes" => $this->Wei_equipe_model->lister(0, 0, 'nom'),
+			);
+
+			$this->load->view('backend/header', array('titre' => 'WEI'));
+			$this->load->view('backend/menu');
+			$this->load->view('backend/accueil', $wei_data);
+			$this->load->view('backend/footer');
+		}
+		else
+		{
+			$contraintes_bungalow = array(
+				"numero" => $this->input->post("numero"),
+			);
+			
+			$contraintes_wei = array(
+				"wei" => 1,
+			);
+			
+			if ($this->input->post("uniquement_sans_bungalow"))
+				$chercher_wei = $this->Wei_model->chercher($contraintes_wei, array('bungalow_id' => null), 0, 0);
+			else
+				$chercher_wei = $this->Wei_model->chercher($contraintes_wei, array(), 0, 0);
+
+			$chercher_bungalow = $this->Wei_bungalow_model->chercher($contraintes_bungalow, 0, 0);
+
+			$chercher = array_intersect($chercher_wei, $chercher_bungalow);
+
+			$adherents = array();
+			foreach($chercher as $adherent_id)
+			{
+				$adherent = $this->Adherent_model->charger($adherent_id);
+				$wei = $this->Wei_model->charger(False, $adherent_id);
+				if ($wei->bungalow_id)
+					$adherent->bungalow = $this->Wei_bungalow_model->charger($wei->bungalow_id);
+				array_push($adherents, $adherent);
+			}
+			
+			$contraintes_render = array();
+			$contraintes_render['WEI'] = 'Oui';
+			if ($this->input->post("uniquement_sans_bungalow"))
+				$contraintes_render['Uniquement sans bungalow'] = "Oui";
+			if ($this->input->post("numero"))
+				$contraintes_render['Numéro'] = $this->input->post("numero");
+
+			$data_liste = array(
+				"adherents" => $adherents,
+				"contraintes_render" => $contraintes_render,
+			);
+
+			$this->load->view('backend/header', array('titre' => 'Recherche participants WEI'));
+			$this->load->view('backend/menu');
+			$this->load->view('backend/liste', $data_liste);
+			$this->load->view('backend/footer');
+		}
+	}
+	
 	public function equipe_voir($equipe_id)
 	{
 		$this->load->model('Wei_equipe_model');

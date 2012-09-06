@@ -8,14 +8,14 @@
 		<div class="six columns">
 			<?php
 			$input = array(
-				'name' => 'clef',
-				'value' => set_value('clef', ''),
-				'placeholder' => 'Clef',
-				'id' => 'clef',
+				'name' => 'numero',
+				'value' => set_value('numero', ''),
+				'placeholder' => 'Numéro',
+				'id' => 'numero',
 			);
 			?>
 			<div class='three columns'>
-				<label for="clef" class="inline"><b>Clef</b> : </label>
+				<label for="numero" class="inline"><b>Numéro</b> : </label>
 			</div>
 			<div class='nine columns'>
 				<?php echo form_input($input); ?>
