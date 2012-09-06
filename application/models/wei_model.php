@@ -76,6 +76,8 @@ class Wei_model extends CI_Model {
 	* @var Wei_equipe_model $_equipe
 	*/
 	private $_equipe;
+	
+	public $mdp;
 	/**
     * date de la dernière modification du wei
 	* @note exemple '2012-07-15 00:00:00'
@@ -142,6 +144,7 @@ class Wei_model extends CI_Model {
 			'etat_reservation' => $this->etat_reservation,
 			'bungalow_id' => $bungalow,
 			'equipe_id' => $equipe,
+			'mdp' => $mdp,
 		);
 
 		$this->db->insert('wei', $data);
@@ -163,6 +166,7 @@ class Wei_model extends CI_Model {
 			'etat_reservation' => $this->etat_reservation,
 			'bungalow_id' => $bungalow,
 			'equipe_id' => $equipe,
+			'mdp' => $this->mdp,
 		);
 
 		$this->db->where('id', $this->id);
@@ -215,6 +219,7 @@ class Wei_model extends CI_Model {
 		$this->_bungalow = $this->Wei_bungalow_model->charger($this->bungalow_id);
 		$this->equipe_id = $row->equipe_id;
 		$this->_equipe = $this->Wei_equipe_model->charger($this->equipe_id);
+		$this->mdp = $row->mdp;
 		$this->modification = $row->modification;
 		return clone $this;
 	}

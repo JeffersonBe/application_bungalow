@@ -34,6 +34,8 @@ class Migration_Add_wei_table extends CI_Migration {
 			KEY `bungalow_id` (`bungalow_id`),
 			KEY `equipe_id` (`equipe_id`)
 			) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+			
+			ALTER TABLE `wei` ADD `mdp` VARCHAR( 30 ) NULL AFTER `equipe_id` 
 		");
 	}
 

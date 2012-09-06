@@ -357,6 +357,34 @@ class Wei extends CI_Controller {
 			die("Bungalow inexistant");
 	}
 	
+	public function generer_pass($adherent_id)
+	{
+		$adherent_id = intval($adherent_id);
+		
+		$this->load->model('Adherent_model');
+		$this->load->model('Wei_model');
+		$this->load->model('Wei_bungalow_model');
+		$this->load->model('Wei_equipe_model');
+		
+		$wei = $this->Wei_model->charger(False, $adherent_id);
+		$wei->mdp = $this->nouveau_pass();
+		var_dump($this->nouveau_pass());
+		$wei->mettre_a_jour();
+		
+		redirect('backend/adherent/voir/'.$adherent_id);
+	}
+	
+	public function nouveau_pass()
+	{
+	    $alphabet = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
+	    $pass = array(); //remember to declare $pass as an array
+	    for ($i = 0; $i < 15; $i++) {
+	        $n = rand(0, strlen($alphabet)-1); //use strlen instead of count
+	        $pass[$i] = $alphabet[$n];
+	    }
+	    return implode($pass); //turn the array into a string
+	}
+
 	private function _equipe_set_rules()
 	{
 		$this->form_validation->set_rules('nom', 'Nom', 'required|max_length[50]|xss_clean');

@@ -211,6 +211,12 @@ $moyen_payement_options = array(
 						if ($wei_equipe)
 							echo anchor("/backend/wei/equipe/voir/".$wei_equipe->id, $wei_equipe->nom);
 						?></li>
+						<?php
+						if (!$wei->mdp)
+							echo anchor("backend/wei/generer_pass/".$adherent->id, "Générer un mot de pass", array("class" => 'secondary button'));
+						else 
+							echo "<li><b>Mot de passe</b> : ".$wei->mdp."</li>";
+						?>
 						<li><b>Dernière modification de la fiche</b> : <?php echo $wei->modification; ?></li>
 					</ul>
 				<?php
