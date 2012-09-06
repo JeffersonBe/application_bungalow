@@ -16,7 +16,7 @@
 			?>
 			<?php echo validation_errors(); ?> 
 			<div class="six columns">
-				<h3>Adhérent</h3>
+				<h3>Nom</h3>
 				<div class="row">
 					<?php
 					$input = array(

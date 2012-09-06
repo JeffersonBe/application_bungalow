@@ -26,7 +26,7 @@ class Wei_bungalow_model extends CI_Model {
 	* objet de l'équipe ayant l'id equipe_id
 	* @var Equipe_model $_equipe
 	*/
-	private $_equipe;
+	public $_equipe;
 	/**
 	* Numéro du bungalow (d'après le camping)
 	* @warning 50 caractères max.
@@ -82,11 +82,14 @@ class Wei_bungalow_model extends CI_Model {
 	public function enregistrer()
 	{
 		$data = array(
-			'equipe_id' => $this->equipe_id,
 			'numero' => $this->numero,
 			'nom' => $this->nom,
 			'capacite' => $this->capacite,
 		);
+		if ($this->equipe_id)
+			$data['equipe_id'] = $this->equipe_id;
+		else
+			$data['equipe_id'] = null;
 
 		$this->db->insert('wei_bungalow', $data);
 
@@ -171,6 +174,43 @@ class Wei_bungalow_model extends CI_Model {
 		foreach($query->result() as $wei_bungalow)
 		{
 			array_push($resultat, $this->charger($wei_bungalow->id));
+		}
+
+		return $resultat;
+	}
+	
+	/**
+	* Liste les membres d'un bungalow selon des critères optionnels de
+	* classement et de limite
+	*
+	* @todo test
+	* @param int $limite optionnel nombre limite de membres
+	* @param int $offset optionnel offset (décalage)
+	* @param string $ordre_key optionnel colonne selon laquelle s'effectue l'ordre
+	* @param string $ordre_direction optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')
+	* @return Adherent_model array tableau des objets des adhérents
+	*/
+	public function lister_membres($limite=30, $offset=0, $ordre_key='wei_bungalow.id', $ordre_direction='desc')
+	{
+		$this->db->select('*');
+		$this->db->from('wei_bungalow');
+		$this->db->join('wei', 'wei.bungalow_id = wei_bungalow.id');
+		$this->db->join('adherent', 'adherent.id = wei.adherent_id');
+		$this->db->where('wei_bungalow.id', $this->id);
+		$this->db->order_by($ordre_key, $ordre_direction);
+		if ($limite)
+			$this->db->limit($limite, $offset);
+		$query = $this->db->get();
+		
+		if ($query->num_rows() == 0)
+		{
+			return FALSE;
+		}
+
+		$resultat = array();
+		foreach($query->result() as $adherent)
+		{
+			array_push($resultat, $adherent);
 		}
 
 		return $resultat;

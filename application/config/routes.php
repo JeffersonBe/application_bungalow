@@ -49,10 +49,10 @@ $route['backend/wei/equipe/voir/(:num)'] = 'backend/wei/equipe_voir/$1';
 $route['backend/wei/equipe/modifier/(:num)'] = 'backend/wei/equipe_modifier/$1';
 $route['backend/wei/equipe/supprimer/(:num)'] = 'backend/wei/equipe_supprimer/$1';
 
-$route['backend/bungalow/nouveau'] = 'backend/wei/bungalow_nouveau';
-$route['backend/bungalow/voir/(:num)'] = 'backend/wei/bungalow_voir/$1';
-$route['backend/bungalow/modifier/(:num)'] = 'backend/wei/bungalow_modifier/$1';
-$route['backend/bungalow/supprimer/(:num)'] = 'backend/wei/bungalow_supprimer/$1';
+$route['backend/wei/bungalow/nouveau'] = 'backend/wei/bungalow_nouveau';
+$route['backend/wei/bungalow/voir/(:num)'] = 'backend/wei/bungalow_voir/$1';
+$route['backend/wei/bungalow/modifier/(:num)'] = 'backend/wei/bungalow_modifier/$1';
+$route['backend/wei/bungalow/supprimer/(:num)'] = 'backend/wei/bungalow_supprimer/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

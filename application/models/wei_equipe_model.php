@@ -106,11 +106,11 @@ class Wei_equipe_model extends CI_Model {
 	}
 
 	/**
-	* Liste les membres d'un bungalow selon des critères optionnels de
+	* Liste les membres d'une équipe selon des critères optionnels de
 	* classement et de limite
 	*
 	* @todo test
-	* @param int $limite optionnel nombre limite de bungalows
+	* @param int $limite optionnel nombre limite de membres
 	* @param int $offset optionnel offset (décalage)
 	* @param string $ordre_key optionnel colonne selon laquelle s'effectue l'ordre
 	* @param string $ordre_direction optionnel direction selon laquelle s'effectue l'ordre ('desc' ou 'asc')

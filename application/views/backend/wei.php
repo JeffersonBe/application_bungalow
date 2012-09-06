@@ -8,22 +8,6 @@
 		<div class="six columns">
 			<?php
 			$input = array(
-				'name' => 'numero',
-				'value' => set_value('numero', ''),
-				'placeholder' => 'Numéro',
-				'id' => 'numero',
-			);
-			?>
-			<div class='three columns'>
-				<label for="numero" class="inline"><b>Numéro</b> : </label>
-			</div>
-			<div class='nine columns'>
-				<?php echo form_input($input); ?>
-			</div>
-		</div>
-		<div class="six columns">
-			<?php
-			$input = array(
 				"name" => "uniquement_sans_bungalow",
 				"value" => set_value('uniquement_sans_bungalow', '1'),
 				"id" => "uniquement_sans_bungalow",
@@ -128,7 +112,12 @@
 								</td>
 								<td class="two columns">
 									<?php
-										echo $bungalow->equipe_id ? $bungalow->_equipe->nom : '<span class="alert label">Sans équipe</span>'; ?></td>
+									if ($bungalow->equipe_id)
+										echo $bungalow->_equipe->hexa ? '<span style="color: #'.$bungalow->_equipe->hexa.'">'.$bungalow->_equipe->nom.'</span>' : $bungalow->_equipe->nom; 
+									else
+										echo '<span class="alert label">Sans équipe</span>';
+									?>
+								</td>
 								<td class="two columns">
 									<?php echo anchor("backend/wei/bungalow/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
 								</td>
@@ -174,7 +163,12 @@
 								</td>
 								<td class="two columns">
 									<?php
-										echo $bungalow->equipe_id ? $bungalow->_equipe->nom : '<span class="alert label">Sans équipe</span>'; ?></td>
+									if ($bungalow->equipe_id)
+										echo $bungalow->_equipe->hexa ? '<span style="color: #'.$bungalow->_equipe->hexa.'">'.$bungalow->_equipe->nom.'</span>' : $bungalow->_equipe->nom; 
+									else
+										echo '<span class="alert label">Sans équipe</span>';
+									?>
+								</td>
 								<td class="two columns">
 									<?php echo anchor("backend/wei/bungalow/voir/".$bungalow->id, "Consulter", array('class' => "tiny regular button", 'target' => '_blank')); ?>
 								</td>
