@@ -20,6 +20,7 @@ class Accueil extends CI_Controller {
 		$this->load->model('Wei_bungalow_model');
 		$this->load->model('Wei_equipe_model');
 
+		/*
 		$logs = $this->Log_model->charger_confondus(15);
 		foreach($logs as $log)
 		{
@@ -45,13 +46,16 @@ class Accueil extends CI_Controller {
 				$log->modifier = "backend/wei/equipe/modifier/".$log->id;
 			}
 		}
+		 * 
+		 */
 
 		$data_accueil = array(
 			"stats_wei" => $this->Wei_model->places_restantes_wei(),
 			"stats_ecoles" => $this->Stats_model->voir_ecoles(),
 			"stats_sexes" => $this->Stats_model->voir_sexes(),
-			"logs" => $logs,
+			//"logs" => $logs,
 		);
+
 
 		$this->load->view('backend/header', array('titre' => 'Accueil'));
 		$this->load->view('backend/menu');
