@@ -12,7 +12,7 @@
 class Launch extends CI_Controller {
 	public function index()
 	{
-		$promo = '2014';
+		$promo = '2015';
 		
 		$this->load->model('Adherent_model');
 		$this->load->model('Profil_model');
@@ -39,10 +39,10 @@ class Launch extends CI_Controller {
 					{
 						// Envoyer un mail
 						$this->load->library('email');
-						$this->email->from('association.bde@it-sudparis.eu', 'BDE Showtime');
+						$this->email->from('contact@showtime2012.fr', 'BDE Showtime');
 						$this->email->to($profil->email);
 						$this->email->subject('Réservation des bungalows WEI');
-						$this->email->message("L'application bungalow est ouverte !\nRDV sur http://showtime2012.fr/rentree/bungalows/accueil\nUtilisez cette adresse e-mail et le mot de passe ".$wei->mdp); 
+						$this->email->message("L'application bungalow est ouverte !\nRDV sur http://showtime2012.fr/rentree/bungalows/accueil\nUtilisez cette adresse e-mail et le mot de passe ".$wei->mdp."\nEn cas de problème, envoyer un mail à contact@showtime2012.fr"); 
 						$this->email->send();
 						echo $this->email->print_debugger();
 						echo $adherent->prenom." ".$adherent->nom." Réussi<br />";
