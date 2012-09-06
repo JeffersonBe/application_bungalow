@@ -147,7 +147,7 @@ class Accueil extends CI_Controller {
 		if (!(($staff && $bungalow->_equipe->id == 1) || (!$staff && $bungalow->_equipe->id != 1)))
 			return FALSE;
 		
-		if (count(intval($bungalow->lister_membres(0))) < $bungalow->capacite)
+		if ($bungalow->lister_membres(0) != FALSE && count($bungalow->lister_membres(0)) < $bungalow->capacite)
 			return TRUE;
 	}
 	
