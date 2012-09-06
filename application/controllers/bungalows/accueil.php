@@ -98,7 +98,7 @@ class Accueil extends CI_Controller {
 			$wei = $this->Wei_model->charger(False, $this->session->userdata('id'));
 			$wei->bungalow_id = $this->input->post('bungalows');
 			$wei->equipe_id = $bungalow->equipe_id;
-			if ($this->input->post('nom_bungalow_'.$this->input->post('bungalows')) && count(intval($bungalow->lister_membres(0))) == 0)
+			if ($this->input->post('nom_bungalow_'.$this->input->post('bungalows')))
 			{
 				$bungalow->nom = $this->input->post('nom_bungalow_'.$this->input->post('bungalows'));
 				$bungalow->mettre_a_jour();
