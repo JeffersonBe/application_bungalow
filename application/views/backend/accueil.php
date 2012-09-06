@@ -88,7 +88,6 @@
 					?>
 				</div>
 			</div>
-			<input id='voir_plus_chercher' onclick='reveal("plus_chercher", "voir_plus_chercher")' type='button' class='tiny secondary button' value="Plus d'options »">
 			<div id='plus_chercher'>
 				<div class="twelve columns">
 					<label for="promotion" class="three mobile-two columns">
@@ -366,5 +365,4 @@
 	google.setOnLoadCallback(function(){ drawWei(<?php echo $wei_chart; ?>, <?php echo $wei_max_chart ?>) });
 
 	$('#plus_stats').hide();
-	$('#plus_chercher').hide();
 </script>
