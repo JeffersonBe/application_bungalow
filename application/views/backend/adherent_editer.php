@@ -64,11 +64,11 @@
 					$options = array(
 						"2015" => "2012 - 2015",
 						"2014" => "2011 - 2014",
-						"2010" => "2010 - 2013",
+						"2013" => "2010 - 2013",
 					);
 					?>
 					<div class="four columns"><label for="promotion" class="inline"><b>Promotion *</b> :</label></div>
-					<div class="eight columns"><? echo form_dropdown('promotion', $options, set_value('promotion', (isset($adherent->promotion) ? $adherent->promotion : '2015')), "id='promotion'"); ?></div>
+					<div class="eight columns"><? echo form_dropdown('promotion', $options, set_value('promotion', (isset($adherent->promo) ? $adherent->promo : '2015')), "id='promotion'"); ?></div>
 				</div>
 			</div>
 			<div class="six columns float" id="photo_adherent" style='float: right;'></div>
