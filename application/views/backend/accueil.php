@@ -311,6 +311,7 @@
 			</div>
 			</div>
 	</div>
+	<!--
 	<div id="activite" class="twelve columns">
 		<br /><br />
 		<h1 class="ten subheader mobile-four columns centered">Activit&eacute;s r&eacute;centes</h1><br />
@@ -343,6 +344,7 @@
 			?>
 		</table>
 	</div>
+	!--->
 </div>
 <!--Load the AJAX API-->
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>

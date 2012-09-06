@@ -374,7 +374,6 @@ class Wei extends CI_Controller {
 		
 		$wei = $this->Wei_model->charger(False, $adherent_id);
 		$wei->mdp = $this->nouveau_pass();
-		var_dump($this->nouveau_pass());
 		$wei->mettre_a_jour();
 		
 		redirect('backend/adherent/voir/'.$adherent_id);

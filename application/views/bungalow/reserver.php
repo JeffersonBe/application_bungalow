@@ -68,7 +68,7 @@ $couleurs = array(
 							</div>
 						</div>
 						<?php
-						if (!$wei->bungalow_id && !$bungalow->places_prises_bungalow())
+						if (!$bungalow->nom)
 							echo '<input type="text" name="nom_bungalow_'.$bungalow->id.'" placeholder="Donnez un nom au bungalow"/>';
 						else
 							echo $bungalow->nom;
