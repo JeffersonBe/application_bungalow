@@ -1,0 +1,5 @@
+doc/html/*
+doc/latex/*
+application/logs/*
+*.psd
+/ldap_email.pyc
